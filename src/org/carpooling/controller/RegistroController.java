@@ -9,12 +9,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javax.swing.JOptionPane;
 import org.carpooling.sistema.Principal;
-//Esta clase maneja la logica de la vista de login
-public class LoginController implements Initializable {
+
+public class RegistroController implements Initializable {
     
     private Principal escenarioPrincipal;
-    
-    @FXML private Button btnRegistro;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -29,8 +27,8 @@ public class LoginController implements Initializable {
         this.escenarioPrincipal = escenarioPrincipal;
     }
     
-    public void ventanaRegistro(){
-        escenarioPrincipal.ventanaRegistro();
+    public void login(){
+        escenarioPrincipal.login();
     }
     
 }

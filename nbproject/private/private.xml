@@ -3,8 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Bryan%20Carrillo/Documents/NetBeansProjects/CarpoolingGt/src/org/carpooling/sistema/Principal.java</file>
-            <file>file:/C:/Users/Bryan%20Carrillo/Documents/NetBeansProjects/CarpoolingGt/src/org/carpooling/db/Conexion.java</file>
+            <file>file:/C:/Users/Bryan%20Carrillo/Documents/NetBeansProjects/carpooling-gt/src/org/carpooling/controller/RegistroController.java</file>
+            <file>file:/C:/Users/Bryan%20Carrillo/Documents/NetBeansProjects/carpooling-gt/src/org/carpooling/controller/LoginController.java</file>
         </group>
     </open-files>
 </project-private>

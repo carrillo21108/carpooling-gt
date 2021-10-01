@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.carpooling.controller.LoginController;
+import org.carpooling.controller.RegistroController;
 
 
 public class Principal extends Application {
@@ -30,8 +31,17 @@ public class Principal extends Application {
     
     public void login(){
         try{
-        LoginController login = (LoginController)cambiarEscena("Login.fxml", 721, 452);
-        login.setEscenarioPrincipal(this);
+            LoginController login = (LoginController)cambiarEscena("LoginView.fxml", 721, 452);
+            login.setEscenarioPrincipal(this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    public void ventanaRegistro(){
+        try{
+            RegistroController registro = (RegistroController)cambiarEscena("RegistroView.fxml", 721, 452);
+            registro.setEscenarioPrincipal(this);
         }catch(Exception e){
             e.printStackTrace();
         }

@@ -38,7 +38,6 @@
          </font>
       </Label>
       <TextField layoutX="230.0" layoutY="226.0" prefHeight="31.0" prefWidth="320.0" />
-      <TextField layoutX="230.0" layoutY="268.0" prefHeight="31.0" prefWidth="320.0" />
       <Label layoutX="51.0" layoutY="231.0" text="Nombre de usuario" textFill="#f8f8f8">
          <font>
             <Font name="Bell MT" size="18.0" />
@@ -49,6 +48,8 @@
             <Font name="Bell MT" size="18.0" />
          </font>
       </Label>
-      <Button layoutX="342.0" layoutY="327.0" mnemonicParsing="false" text="Ingresar" />
+      <Button layoutX="230.0" layoutY="327.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="84.0" text="Ingresar" />
+      <Button fx:id="btnRegistro" layoutX="331.0" layoutY="327.0" mnemonicParsing="false" onAction="#ventanaRegistro" prefHeight="31.0" prefWidth="105.0" text="Registrarse" />
+      <PasswordField layoutX="230.0" layoutY="269.0" prefHeight="31.0" prefWidth="320.0" />
    </children>
 </AnchorPane>

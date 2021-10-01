@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="721.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.carpooling.controller.RegistroController">
+   <children>
+      <ImageView fitHeight="491.0" fitWidth="728.0" layoutX="-7.0" layoutY="-18.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/fondo%20%232.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="84.0" layoutX="48.0" layoutY="23.0" onMouseClicked="#login" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="295.0" layoutY="71.0" prefHeight="31.0" prefWidth="143.0" text="Crear cuenta">
+         <font>
+            <Font name="Bell MT" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="80.0" fitWidth="123.0" layoutX="543.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/avatar.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="36.0" layoutY="87.0" text="Carpooling Gt" textFill="#276a7c">
+         <font>
+            <Font name="Bell MT" size="18.0" />
+         </font>
+      </Label>
+      <TextField layoutX="223.0" layoutY="139.0" prefHeight="31.0" prefWidth="158.0" />
+      <Label layoutX="39.0" layoutY="144.0" text="Nombres y apellidos">
+         <font>
+            <Font name="Bell MT" size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="506.0" layoutY="377.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="104.0" text="Registrarse" />
+      <Label layoutX="430.0" layoutY="143.0" text="CUI">
+         <font>
+            <Font name="Bell MT" size="18.0" />
+         </font>
+      </Label>
+      <TextField layoutX="490.0" layoutY="139.0" prefHeight="31.0" prefWidth="158.0" />
+      <Label layoutX="36.0" layoutY="186.0" text="Correo">
+         <font>
+            <Font name="Bell MT" size="18.0" />
+         </font>
+      </Label>
+      <TextField layoutX="223.0" layoutY="182.0" prefHeight="31.0" prefWidth="158.0" />
+      <Label layoutX="39.0" layoutY="228.0" text="Contraseña">
+         <font>
+            <Font name="Bell MT" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="445.0" layoutY="197.0" text="Tipo de cuenta">
+         <font>
+            <Font name="Bell MT" size="18.0" />
+         </font>
+      </Label>
+      <RadioButton layoutX="438.0" layoutY="239.0" mnemonicParsing="false" text="Conductor" />
+      <RadioButton layoutX="569.0" layoutY="239.0" mnemonicParsing="false" text="Pasajero" />
+      <TextField layoutX="223.0" layoutY="267.0" prefHeight="31.0" prefWidth="158.0" />
+      <Label layoutX="36.0" layoutY="271.0" text="No. de placa">
+         <font>
+            <Font name="Bell MT" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="445.0" layoutY="282.0" text="Sexo">
+         <font>
+            <Font name="Bell MT" size="18.0" />
+         </font>
+      </Label>
+      <RadioButton layoutX="439.0" layoutY="316.0" mnemonicParsing="false" text="Masculino" />
+      <RadioButton layoutX="572.0" layoutY="316.0" mnemonicParsing="false" text="Femenino" />
+      <Label layoutX="37.0" layoutY="316.0" text="Tu ubiación">
+         <font>
+            <Font name="Bell MT" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="39.0" layoutY="366.0" text="Destino">
+         <font>
+            <Font name="Bell MT" size="18.0" />
+         </font>
+      </Label>
+      <TextField layoutX="223.0" layoutY="311.0" prefHeight="31.0" prefWidth="158.0" />
+      <TextField layoutX="223.0" layoutY="353.0" prefHeight="31.0" prefWidth="158.0" />
+      <PasswordField layoutX="223.0" layoutY="224.0" prefHeight="31.0" prefWidth="158.0" />
+   </children>
+</AnchorPane>
