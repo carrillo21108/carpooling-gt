@@ -7,7 +7,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import javax.swing.JOptionPane;
 import org.carpooling.sistema.Principal;
-    
+//Esta clase maneja la logica de la vista de login
 public class LoginController implements Initializable {
     
     private Principal escenarioPrincipal;
