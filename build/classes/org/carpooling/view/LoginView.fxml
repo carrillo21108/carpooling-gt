@@ -48,7 +48,7 @@
             <Font name="Bell MT" size="18.0" />
          </font>
       </Label>
-      <Button layoutX="230.0" layoutY="327.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="84.0" text="Ingresar" />
+      <Button layoutX="230.0" layoutY="327.0" mnemonicParsing="false" onAction="#ventanaPerfil" prefHeight="31.0" prefWidth="84.0" text="Ingresar" />
       <Button fx:id="btnRegistro" layoutX="331.0" layoutY="327.0" mnemonicParsing="false" onAction="#ventanaRegistro" prefHeight="31.0" prefWidth="105.0" text="Registrarse" />
       <PasswordField layoutX="230.0" layoutY="269.0" prefHeight="31.0" prefWidth="320.0" />
    </children>
