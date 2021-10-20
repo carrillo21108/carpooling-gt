@@ -33,4 +33,8 @@ public class LoginController implements Initializable {
         escenarioPrincipal.ventanaRegistro();
     }
     
+    public void ventanaPerfil(){
+        escenarioPrincipal.ventanaPerfil();
+    }
+    
 }

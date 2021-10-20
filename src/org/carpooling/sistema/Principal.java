@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.carpooling.controller.LoginController;
 import org.carpooling.controller.RegistroController;
+import org.carpooling.controller.PerfilController;
 
 
 public class Principal extends Application {
@@ -41,6 +42,15 @@ public class Principal extends Application {
     public void ventanaRegistro(){
         try{
             RegistroController registro = (RegistroController)cambiarEscena("RegistroView.fxml", 721, 452);
+            registro.setEscenarioPrincipal(this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    public void ventanaPerfil(){
+        try{
+            PerfilController registro = (PerfilController)cambiarEscena("PerfilView.fxml", 721, 452);
             registro.setEscenarioPrincipal(this);
         }catch(Exception e){
             e.printStackTrace();
