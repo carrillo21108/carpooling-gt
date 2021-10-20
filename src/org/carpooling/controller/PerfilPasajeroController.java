@@ -10,7 +10,7 @@ import javafx.scene.control.Button;
 import javax.swing.JOptionPane;
 import org.carpooling.sistema.Principal;
 
-public class PerfilController implements Initializable {
+public class PerfilPasajeroController implements Initializable {
     
     private Principal escenarioPrincipal;
     

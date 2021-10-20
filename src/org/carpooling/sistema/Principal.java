@@ -12,7 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.carpooling.controller.LoginController;
 import org.carpooling.controller.RegistroController;
-import org.carpooling.controller.PerfilController;
+import org.carpooling.controller.PerfilPasajeroController;
 
 
 public class Principal extends Application {
@@ -50,7 +50,7 @@ public class Principal extends Application {
     
     public void ventanaPerfil(){
         try{
-            PerfilController registro = (PerfilController)cambiarEscena("PerfilView.fxml", 721, 452);
+            PerfilPasajeroController registro = (PerfilPasajeroController)cambiarEscena("PerfilView.fxml", 721, 452);
             registro.setEscenarioPrincipal(this);
         }catch(Exception e){
             e.printStackTrace();
