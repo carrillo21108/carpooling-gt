@@ -24,8 +24,8 @@ CREATE TABLE Conductores (
     contrasenia varchar(10) not null,
     codigoCarro int not null,
     espaciosDisponibles int not null,
-    ubicacion varchar(10) not null,
-    destino varchar(10) not null,
+    ubicacion varchar(50) not null,
+    destino varchar(50) not null,
     
     primary key PK_codigoConductor (codigoConductor),
     constraint FK_Carros_Conductores foreign key (codigoCarro)
@@ -37,12 +37,13 @@ CREATE TABLE Pasajeros (
 	codigoPasajero int not null auto_increment,
     nombre varchar(10) not null,
     apellidos varchar(10) not null,
+    correo varchar(15) not null,
 	codigoConductor int not null,
     deuda decimal(10,2) not null,
     usuario varchar(10) not null,
     contrasenia varchar(10) not null,
-    ubicacion varchar(10) not null,
-    destino varchar(10) not null,
+    ubicacion varchar(50) not null,
+    destino varchar(50) not null,
 	
     primary key PK_codigoPasajero (codigoPasajero),
     constraint FK_Conductores_Pasajeros foreign key (codigoConductor)
@@ -100,7 +101,7 @@ Delimiter ;
 -- Procedimientos tabla Conductores
 Delimiter $$
 CREATE PROCEDURE sp_AgregarConductor(IN nombre varchar(10), IN apellidos varchar(10), IN correo varchar(10), IN usuario varchar(10), IN contrasenia varchar(10),
-									IN codigoCarro int, IN espaciosDisponibles int, IN ubicacion varchar(10), IN destino varchar(10))
+									IN codigoCarro int, IN espaciosDisponibles int, IN ubicacion varchar(50), IN destino varchar(50))
 BEGIN
 	INSERT INTO Conductores (nombre, apellidos, correo, usuario, contrasenia, codigoCarro, espaciosDisponibles, ubicacion, destino)
 		VALUES(nombre, apellidos, correo, usuario, contrasenia, codigoCarro, espaciosDisponibles, ubicacion, destino);
@@ -109,7 +110,7 @@ Delimiter ;
 
 Delimiter $$
 CREATE PROCEDURE sp_ActualizarConductor(IN codigo int, IN nombre varchar(10), IN apellidos varchar(10), IN correo varchar(10), IN usuario varchar(10), IN contrasenia varchar(10),
-									IN codigoCarro int, IN espaciosDisponibles int, IN ubicacion varchar(10), IN destino varchar(10))
+									IN codigoCarro int, IN espaciosDisponibles int, IN ubicacion varchar(50), IN destino varchar(50))
 BEGIN
 	UPDATE Conductores SET nombre=nombre, apellidos=apellidos, correo=correo, usuario=usuario, contrasenia=contrasenia, codigoCarro=codigoCarro, espacioDisponibles=espaciosDisponibles,
 					ubicacion=ubicacion, destino=destino WHERE codigoConductor=codigo;
@@ -163,19 +164,19 @@ Delimiter ;
 -- Procedimientos tabla Pasajeros
 Delimiter $$
 CREATE PROCEDURE sp_AgregarPasajero(IN nombre varchar(10), IN apellidos varchar(10), IN correo varchar(10), IN codigoConductor int, IN deuda double(10,2), IN usuario varchar(10), IN contrasenia varchar(10),
-									IN ubicacion varchar(10), IN destino varchar(10))
+									IN ubicacion varchar(50), IN destino varchar(50))
 BEGIN
-	INSERT INTO Pasajeros (nombre, apellidos, correo, codigoConductor, deuda, usario, contrasenia, ubicacion, destino)
-		VALUES(nombre, apellidos, correo, codigoConductor, deuda, usario, contrasenia, ubicacion, destino);
+	INSERT INTO Pasajeros (nombre, apellidos, correo, codigoConductor, deuda, usuario, contrasenia, ubicacion, destino)
+		VALUES(nombre, apellidos, correo, codigoConductor, deuda, usuario, contrasenia, ubicacion, destino);
 END$$
 Delimiter ;
 
 Delimiter $$
 CREATE PROCEDURE sp_ActualizarPasajero(IN nombre varchar(10), IN apellidos varchar(10), IN correo varchar(10), IN codigoConductor int, IN deuda double(10,2), IN usuario varchar(10), IN contrasenia varchar(10),
-									IN ubicacion varchar(10), IN destino varchar(10))
+									IN ubicacion varchar(50), IN destino varchar(50))
 BEGIN
 	UPDATE Pasajeros SET nombre=nombre, apellidos=apellidos, correo=correo, codigoConductor=codigoConductor, deuda=deuda, 
-		usuario=usario, contrasenia=contrasenia, ubicacion=ubicacion, destino=destino WHERE codigoPasajero=codigo;
+		usuario=usuario, contrasenia=contrasenia, ubicacion=ubicacion, destino=destino WHERE codigoPasajero=codigo;
 END$$
 Delimiter ;
 
