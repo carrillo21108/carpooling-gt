@@ -17,19 +17,23 @@ public class Conductor {
     private String correo;
     private String usuario;
     private String contrasenia;
+    private String ubicacion;
+    private String destino;
     private int codigoAuto;
     private int espaciosDisponibles;
 
     public Conductor() {
     }
 
-    public Conductor(int codigoConductor, String nombre, String apellidos, String correo, String usuario, String contrasenia, int codigoAuto, int espaciosDisponibles) {
+    public Conductor(int codigoConductor, String nombre, String apellidos, String correo, String usuario, String contrasenia, String ubicacion, String destino, int codigoAuto, int espaciosDisponibles) {
         this.codigoConductor = codigoConductor;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.correo = correo;
         this.usuario = usuario;
         this.contrasenia = contrasenia;
+        this.ubicacion = ubicacion;
+        this.destino = destino;
         this.codigoAuto = codigoAuto;
         this.espaciosDisponibles = espaciosDisponibles;
     }
@@ -96,6 +100,22 @@ public class Conductor {
 
     public void setEspaciosDisponibles(int espaciosDisponibles) {
         this.espaciosDisponibles = espaciosDisponibles;
+    }
+    
+    public String getUbicacion() {
+        return ubicacion;
+    }
+
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
+    }
+
+    public String getDestino() {
+        return destino;
+    }
+
+    public void setDestino(String destino) {
+        this.destino = destino;
     }
     
     @Override

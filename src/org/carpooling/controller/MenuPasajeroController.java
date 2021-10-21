@@ -1,4 +1,10 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package org.carpooling.controller;
+
 
 import java.net.URL;
 import java.util.HashMap;
@@ -9,17 +15,24 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javax.swing.JOptionPane;
 import org.carpooling.sistema.Principal;
-
-public class PerfilController implements Initializable {
+/**
+ *
+ * @author carlo
+ */
+public class MenuPasajeroController implements Initializable{
     
     private Principal escenarioPrincipal;
+    
+    @FXML private Button btnVer;
+    @FXML private Button btnAbandonar;
+    
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         
     }
-
-    public Principal getEscenarioPrincipal() {
+    
+     public Principal getEscenarioPrincipal() {
         return escenarioPrincipal;
     }
 
