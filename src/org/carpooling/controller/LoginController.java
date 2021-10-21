@@ -54,25 +54,27 @@ public class LoginController implements Initializable {
             int registros=0;
             while (registro.next()){
                 registros++;
-                 if (registros>0){
+                if(registros>0){
                 
-                pasajeroActual = new Pasajero(registro.getInt("codigoPasajero"), registro.getString("nombre"), registro.getString("apellidos"), registro.getString("correo"), registro.getInt("codigoConductor"), registro.getInt("deuda"), registro.getString("usuario"), registro.getString("contrasenia"), registro.getString("ubicacion"), registro.getString("destino"));
-                JOptionPane.showMessageDialog(null, "Bienvenido "+pasajeroActual.getNombre());
-                escenarioPrincipal.ventanaPerfil(); 
+                    pasajeroActual = new Pasajero(registro.getInt("codigoPasajero"), registro.getString("nombre"), registro.getString("apellidos"), registro.getString("correo"), registro.getInt("codigoConductor"), registro.getInt("deuda"), registro.getString("usuario"), registro.getString("contrasenia"), registro.getString("ubicacion"), registro.getString("destino"));
+                    JOptionPane.showMessageDialog(null, "Bienvenido "+pasajeroActual.getNombre());
+                    escenarioPrincipal.ventanaPerfil(); 
 
-                //PreparedStatement procedimiento2 = Conexion.getInstancia().getConexion().prepareCall("{call sp_BusquedaLogin(?,?)}");
-                //pasajeroActual = new Pasajero(int codigoPasajero, String nombre, String apellidos, String correo, int codigoConductor, int deuda, String usuario, String contrasenia, String ubicacion, String destino);
-                
+                    //PreparedStatement procedimiento2 = Conexion.getInstancia().getConexion().prepareCall("{call sp_BusquedaLogin(?,?)}");
+                    //pasajeroActual = new Pasajero(int codigoPasajero, String nombre, String apellidos, String correo, int codigoConductor, int deuda, String usuario, String contrasenia, String ubicacion, String destino);
+                }
+          
             }
-            else{
-                
+            if (registros == 0){
                 JOptionPane.showMessageDialog(null,
                 "Usuario o contrasenia incorrecta. ","Error",JOptionPane.ERROR_MESSAGE);
                 txtUsuario.setText("");
                 txtContrasenia.setText("");
             }
-            }
-           
+            
+                    
+              
+         
           
             
         }catch(Exception e){
