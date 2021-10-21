@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
-//import com.mysql.jdbc.Driver; //Api agregado
+import com.mysql.jdbc.Driver; //Api agregado
 
 public class Conexion {
     private Connection conexion;
@@ -16,7 +16,7 @@ public class Conexion {
 public Conexion(){
     try{
         Class.forName("com.mysql.jdbc.Driver").newInstance();
-        conexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/DBHospitalInfectologia2015389?useSSL=false", "root", "admin");
+        conexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/DBCarpoolingGt?useSSL=false", "root", "admin");
     }catch(ClassNotFoundException e){
         e.printStackTrace();
     }catch(InstantiationException e){
