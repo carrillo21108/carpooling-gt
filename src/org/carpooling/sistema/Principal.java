@@ -56,7 +56,7 @@ public class Principal extends Application {
             e.printStackTrace();
         }
     }
-   
+    
     
     public Initializable cambiarEscena(String fxml, int ancho, int alto) throws Exception{
         Initializable resultado = null;
