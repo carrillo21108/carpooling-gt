@@ -17,6 +17,8 @@ public class Conductor {
     private String correo;
     private String usuario;
     private String contrasenia;
+    private String ubicacion;
+    private String destino;
     private int codigoAuto;
     private int espaciosDisponibles;
 
