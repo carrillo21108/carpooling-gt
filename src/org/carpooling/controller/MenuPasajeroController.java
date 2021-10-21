@@ -5,6 +5,7 @@
  */
 package org.carpooling.controller;
 
+
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,34 +13,26 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 import org.carpooling.sistema.Principal;
-
 /**
  *
  * @author carlo
  */
-public class PerfilConductorController implements Initializable {
+public class MenuPasajeroController implements Initializable{
     
-   private Principal escenarioPrincipal;
-   
-   @FXML private TextField txtNombre;
-   @FXML private TextField txtApellidos;
-   @FXML private TextField txtCorreo;
-   @FXML private TextField txtModeloAuto;
-   @FXML private TextField txtCantidadDeAsientos;
-   @FXML private TextField txtUbicacion;
-   @FXML private TextField txtDestino;
-   @FXML private Button btnActualizar;
-   
+    private Principal escenarioPrincipal;
+    
+    @FXML private Button btnVer;
+    @FXML private Button btnAbandonar;
+    
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         
     }
     
-    public Principal getEscenarioPrincipal() {
+     public Principal getEscenarioPrincipal() {
         return escenarioPrincipal;
     }
 
