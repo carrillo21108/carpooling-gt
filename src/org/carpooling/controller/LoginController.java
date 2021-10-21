@@ -57,7 +57,7 @@ public class LoginController implements Initializable {
                  if (registros>0){
                 
                 pasajeroActual = new Pasajero(registro.getInt("codigoPasajero"), registro.getString("nombre"), registro.getString("apellidos"), registro.getString("correo"), registro.getInt("codigoConductor"), registro.getInt("deuda"), registro.getString("usuario"), registro.getString("contrasenia"), registro.getString("ubicacion"), registro.getString("destino"));
-                JOptionPane.showMessageDialog(null, "Bienvenido"+pasajeroActual.getNombre());
+                JOptionPane.showMessageDialog(null, "Bienvenido "+pasajeroActual.getNombre());
                 escenarioPrincipal.ventanaPerfil(); 
 
                 //PreparedStatement procedimiento2 = Conexion.getInstancia().getConexion().prepareCall("{call sp_BusquedaLogin(?,?)}");
