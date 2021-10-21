@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
+import org.carpooling.bean.Pasajero;
 import org.carpooling.db.Conexion;
 import org.carpooling.sistema.Principal;
 //Esta clase maneja la logica de la vista de login
@@ -24,7 +25,7 @@ public class LoginController implements Initializable {
     @FXML private TextField txtContrasenia;
     private String usuario;
     private String contrasenia;
-    
+    private Pasajero pasajeroActual;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -50,18 +51,21 @@ public class LoginController implements Initializable {
             procedimiento.setString(1, txtUsuario.getText());
             procedimiento.setString(2, txtContrasenia.getText());
             ResultSet registro = procedimiento.executeQuery();
-            int n=0;
+            int registros=0;
             while (registro.next()){
-                n++;
+                registros++;
             }
-            if (n>0){
-                JOptionPane.showMessageDialog(null, String.valueOf(n));
-                
+            if (registros>0){
+                JOptionPane.showMessageDialog(null, "Bienvenido");
                 escenarioPrincipal.ventanaPerfil();
+                //PreparedStatement procedimiento2 = Conexion.getInstancia().getConexion().prepareCall("{call sp_BusquedaLogin(?,?)}");
+                //pasajeroActual = new Pasajero(int codigoPasajero, String nombre, String apellidos, String correo, int codigoConductor, int deuda, String usuario, String contrasenia, String ubicacion, String destino);
+                
             }
             else{
-                System.out.println(String.valueOf(n));
-                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta");
+                
+                JOptionPane.showMessageDialog(null,
+                "Usuario o contrasenia incorrecta. ","Error",JOptionPane.ERROR_MESSAGE);
                 txtUsuario.setText("");
                 txtContrasenia.setText("");
             }
