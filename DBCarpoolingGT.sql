@@ -220,5 +220,14 @@ BEGIN
 END$$
 Delimiter ;
 
+-- Procedimiento Login
+Delimiter $$
+CREATE PROCEDURE sp_BusquedaLogin(IN usuario varchar(10), IN contrasenia varchar(10))
+BEGIN
+	SELECT
+		Pasajeros.codigoPasajero
+        FROM Pasajeros WHERE usuario=usuario AND contrasenia=contrasenia;
+END$$
+Delimiter ;
 
 
