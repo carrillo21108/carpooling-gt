@@ -47,17 +47,19 @@ public class LoginController implements Initializable {
     public void validarUsuario(){
        
         try{
-            PreparedStatement procedimiento = Conexion.getInstancia().getConexion().prepareCall("{call sp_BusquedaLogin(?,?)}");
+            PreparedStatement procedimiento = Conexion.getInstancia().getConexion().prepareCall("{call sp_LoginPasajero(?,?)}");
             procedimiento.setString(1, txtUsuario.getText());
             procedimiento.setString(2, txtContrasenia.getText());
             ResultSet registro = procedimiento.executeQuery();
             int registros=0;
             while (registro.next()){
                 registros++;
-            }
-            if (registros>0){
-                JOptionPane.showMessageDialog(null, "Bienvenido");
-                escenarioPrincipal.ventanaPerfil();
+                 if (registros>0){
+                
+                pasajeroActual = new Pasajero(registro.getInt("codigoPasajero"), registro.getString("nombre"), registro.getString("apellidos"), registro.getString("correo"), registro.getInt("codigoConductor"), registro.getInt("deuda"), registro.getString("usuario"), registro.getString("contrasenia"), registro.getString("ubicacion"), registro.getString("destino"));
+                JOptionPane.showMessageDialog(null, "Bienvenido"+pasajeroActual.getNombre());
+                escenarioPrincipal.ventanaPerfil(); 
+
                 //PreparedStatement procedimiento2 = Conexion.getInstancia().getConexion().prepareCall("{call sp_BusquedaLogin(?,?)}");
                 //pasajeroActual = new Pasajero(int codigoPasajero, String nombre, String apellidos, String correo, int codigoConductor, int deuda, String usuario, String contrasenia, String ubicacion, String destino);
                 
@@ -69,6 +71,8 @@ public class LoginController implements Initializable {
                 txtUsuario.setText("");
                 txtContrasenia.setText("");
             }
+            }
+           
           
             
         }catch(Exception e){

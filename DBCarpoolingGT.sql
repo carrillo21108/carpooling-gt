@@ -229,6 +229,7 @@ BEGIN
 		Pasajeros.codigoPasajero,
         Pasajeros.nombre, 
         Pasajeros.apellidos, 
+        Pasajeros.correo,
         Pasajeros.codigoConductor,
         Pasajeros.deuda,
         Pasajeros.usuario,
