@@ -61,6 +61,12 @@ public class LoginController implements Initializable {
     }
     
     public void validarUsuario(){
+        try{
+            PreparedStatement procedimiento3 = Conexion.getInstancia().getConexion().prepareCall("{call sp_DeleteToken()}");
+            procedimiento3.execute();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         
             try{
                 String query = "";
@@ -78,15 +84,23 @@ public class LoginController implements Initializable {
                 int registros=0;
                 while (registro.next()){
                     registros++;
-                    if(registros>0){
+                    if(registros!=0){
                         if (radioPasajero.isSelected()){
-                            pasajeroActual = new Pasajero(registro.getInt("codigoPasajero"), registro.getString("nombre"), registro.getString("apellidos"), registro.getString("correo"), registro.getInt("codigoConductor"), registro.getInt("deuda"), registro.getString("usuario"), registro.getString("contrasenia"), registro.getString("ubicacion"), registro.getString("destino"));
-                            JOptionPane.showMessageDialog(null, "Bienvenido "+pasajeroActual.getNombre());
+                            
+                            JOptionPane.showMessageDialog(null, "Bienvenido "+registro.getString("nombre"));
+                            PreparedStatement procedimiento2 = Conexion.getInstancia().getConexion().prepareCall("{call sp_SetToken(?,?)}");
+                            procedimiento2.setInt(1, registro.getInt("codigoPasajero"));
+                            procedimiento2.setString(2, "pasajero");
+                            procedimiento2.execute();
                             escenarioPrincipal.ventanaPerfil(); 
                         }
                         else{
-                            conductorActual = new Conductor(registro.getInt("codigoConductor"), registro.getString("nombre"), registro.getString("apellidos"), registro.getString("correo"), registro.getString("usuario"), registro.getString("contrasenia"), registro.getString("ubicacion"), registro.getString("destino"),registro.getInt("codigoCarro"), registro.getInt("espaciosDisponibles"));
-                            JOptionPane.showMessageDialog(null, "Bienvenido "+conductorActual.getNombre());
+                            
+                            JOptionPane.showMessageDialog(null, "Bienvenido "+registro.getString("nombre"));
+                            PreparedStatement procedimiento2 = Conexion.getInstancia().getConexion().prepareCall("{call sp_SetToken(?,?)}");
+                            procedimiento2.setInt(1, registro.getInt("codigoConductor"));
+                            procedimiento2.setString(2, "conductor");
+                            procedimiento2.execute();
                             escenarioPrincipal.ventanaPerfil(); 
                         }   
 

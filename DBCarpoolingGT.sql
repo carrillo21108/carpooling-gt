@@ -269,3 +269,32 @@ BEGIN
         
 END$$
 Delimiter ;
+
+-- Procedimiento Get token 
+Delimiter $$
+CREATE PROCEDURE sp_GetToken()
+BEGIN
+	SELECT 
+		Tokens.codigoToken,
+		Tokens.codigoUsuario,
+		Tokens.tipoUsuario
+		FROM Tokens;
+            
+END$$
+Delimiter ;
+
+-- Procedimiento Set token
+Delimiter $$
+CREATE PROCEDURE sp_SetToken(IN codigoUsuario int, IN tipoUsuario varchar(10))
+BEGIN 
+	INSERT INTO Tokens (codigoUsuario, tipoUsuario) VALUES (codigoUsuario, tipoUsuario);
+END$$
+Delimiter ;
+
+-- Procedimiento Delete token 
+Delimiter $$
+CREATE PROCEDURE sp_DeleteToken()
+BEGIN
+	TRUNCATE TABLE Tokens;
+END$$
+Delimiter ;
