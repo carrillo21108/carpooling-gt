@@ -223,7 +223,7 @@ BEGIN
 END$$
 Delimiter ;
 
--- Procedimiento Login
+-- Procedimiento Login pasajero
 Delimiter $$
 CREATE PROCEDURE sp_LoginPasajero(IN usuarioPrueba varchar(10), IN contraseniaPrueba varchar(10))
 BEGIN
@@ -242,4 +242,22 @@ BEGIN
 END$$
 Delimiter ;
 
-
+-- Procedimiento Login conductor
+Delimiter $$
+CREATE PROCEDURE sp_LoginConductor(IN usuarioConductor varchar(10), IN contraseniaConductor varchar(10))
+BEGIN
+	SELECT
+		Conductores.codigoConductor, 
+        Conductores.nombre, 
+        Conductores.apellidos, 
+        Conductores.correo,
+        Conductores.usuario,
+        Conductores.contrasenia,
+        Conductores.codigoCarro,
+        Conductores.espaciosDisponibles,
+        Conductores.ubicacion,
+        Conductores.destino
+        FROM Conductores WHERE usuario=usuarioConductor AND contrasenia=contraseniaConductor;
+        
+END$$
+Delimiter ;
