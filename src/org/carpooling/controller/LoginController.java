@@ -92,7 +92,7 @@ public class LoginController implements Initializable {
                             procedimiento2.setInt(1, registro.getInt("codigoPasajero"));
                             procedimiento2.setString(2, "pasajero");
                             procedimiento2.execute();
-                            escenarioPrincipal.ventanaPerfil(); 
+                            escenarioPrincipal.ventanaPerfilPasajero(); 
                         }
                         else{
                             
@@ -101,7 +101,7 @@ public class LoginController implements Initializable {
                             procedimiento2.setInt(1, registro.getInt("codigoConductor"));
                             procedimiento2.setString(2, "conductor");
                             procedimiento2.execute();
-                            escenarioPrincipal.ventanaPerfil(); 
+                            escenarioPrincipal.ventanaPerfilConductor(); 
                         }   
 
                         //PreparedStatement procedimiento2 = Conexion.getInstancia().getConexion().prepareCall("{call sp_BusquedaLogin(?,?)}");
@@ -126,8 +126,12 @@ public class LoginController implements Initializable {
         return pasajeroActual;
     }
     
-    public void ventanaPerfil(){
-        escenarioPrincipal.ventanaPerfil();
+    public void ventanaPerfilPasajero(){
+        escenarioPrincipal.ventanaPerfilPasajero();
+    }
+    
+    public void ventanaPerfilConductor(){
+        escenarioPrincipal.ventanaPerfilConductor();
     }
     
 }

@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.carpooling.controller.LoginController;
+import org.carpooling.controller.PerfilConductorController;
 import org.carpooling.controller.RegistroController;
 import org.carpooling.controller.PerfilPasajeroController;
 
@@ -48,9 +49,18 @@ public class Principal extends Application {
         }
     }
     
-    public void ventanaPerfil(){
+    public void ventanaPerfilPasajero(){
         try{
-            PerfilPasajeroController registro = (PerfilPasajeroController)cambiarEscena("PerfilView.fxml", 721, 452);
+            PerfilPasajeroController registro = (PerfilPasajeroController)cambiarEscena("PerfilPasajeroView.fxml", 721, 452);
+            registro.setEscenarioPrincipal(this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    public void ventanaPerfilConductor(){
+        try{
+            PerfilConductorController registro = (PerfilConductorController)cambiarEscena("PerfilConductorView.fxml", 721, 452);
             registro.setEscenarioPrincipal(this);
         }catch(Exception e){
             e.printStackTrace();

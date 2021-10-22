@@ -120,7 +120,7 @@ Delimiter $$
 CREATE PROCEDURE sp_ActualizarConductor(IN codigo int, IN nombre varchar(10), IN apellidos varchar(10), IN correo varchar(10), IN usuario varchar(10), IN contrasenia varchar(10),
 									IN codigoCarro int, IN espaciosDisponibles int, IN ubicacion varchar(50), IN destino varchar(50))
 BEGIN
-	UPDATE Conductores SET nombre=nombre, apellidos=apellidos, correo=correo, usuario=usuario, contrasenia=contrasenia, codigoCarro=codigoCarro, espacioDisponibles=espaciosDisponibles,
+	UPDATE Conductores SET nombre=nombre, apellidos=apellidos, correo=correo, usuario=usuario, contrasenia=contrasenia, codigoCarro=codigoCarro, espaciosDisponibles=espaciosDisponibles,
 					ubicacion=ubicacion, destino=destino WHERE codigoConductor=codigo;
 END$$
 Delimiter ;

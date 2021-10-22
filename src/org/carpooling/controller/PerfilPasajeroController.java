@@ -36,13 +36,11 @@ public class PerfilPasajeroController implements Initializable {
             while (token.next()){
                 codigoUsuario = token.getInt("codigoUsuario");
             }
-            JOptionPane.showMessageDialog(null, String.valueOf(codigoUsuario));
+
             PreparedStatement procedimiento = Conexion.getInstancia().getConexion().prepareCall("{call sp_BuscarPasajero(?)}");
             procedimiento.setInt(1, codigoUsuario);
             pasajeroActual = procedimiento.executeQuery();
             while (pasajeroActual.next()){
-                     JOptionPane.showMessageDialog(null,"entro");
-                     JOptionPane.showMessageDialog(null, pasajeroActual.getString("nombre"));
                      int codigoPasajero = pasajeroActual.getInt("codigoPasajero");
                      String nombre = pasajeroActual.getString("nombre"); 
                      String apellidos = pasajeroActual.getString("apellidos");
@@ -54,8 +52,6 @@ public class PerfilPasajeroController implements Initializable {
                      String ubicacion = pasajeroActual.getString("ubicacion");
                      String destino = pasajeroActual.getString("destino");
                      pasajero = new Pasajero(codigoPasajero, nombre,  apellidos,  correo, codigoConductor,  deuda, usuario,  contrasenia, ubicacion, destino);
-                     JOptionPane.showMessageDialog(null, pasajero.getApellidos());
-                //pasajero = new Pasajero(pasajeroActual.getInt("codigoPasajero"), pasajeroActual.getString("nombre"), pasajeroActual.getString("apellidos"), pasajeroActual.getString("correo"), pasajeroActual.getInt("codigoConductor"), pasajeroActual.getInt("deuda"), pasajeroActual.getString("usuario"), pasajeroActual.getString("contrasenia"), pasajeroActual.getString("ubicacion"), pasajeroActual.getString("destino"));
                     getDatos(pasajero);
             }
 
@@ -71,7 +67,6 @@ public class PerfilPasajeroController implements Initializable {
     
     public void getDatos(Pasajero p){
         try{      
-            JOptionPane.showMessageDialog(null, p.getApellidos());
             txtNombres.setText(p.getNombre());
             txtApellidos.setText(p.getApellidos());
             txtCorreo.setText(p.getCorreo());     
@@ -103,7 +98,7 @@ public class PerfilPasajeroController implements Initializable {
              procedimiento.execute();
              limpiarControles();
               JOptionPane.showMessageDialog(null, "Registro actualizado correctamente.");
-             //getDatos();
+             getDatos(pasajero);
          }catch(Exception e){
              e.printStackTrace();
          }
