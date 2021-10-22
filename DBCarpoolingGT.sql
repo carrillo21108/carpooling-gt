@@ -50,6 +50,14 @@ CREATE TABLE Pasajeros (
 		references Conductores (codigoConductor) ON DELETE CASCADE
 );
 
+CREATE TABLE Tokens (
+	codigoToken int not null auto_increment,
+	codigoUsuario int not null,
+    tipoUsuario varchar(10) null,
+    
+    primary key PK_codigoToken (codigoToken)
+);
+
 
 -- Procedimientos tabla Carros
 Delimiter $$
