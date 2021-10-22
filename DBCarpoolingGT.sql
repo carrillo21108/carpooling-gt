@@ -180,7 +180,7 @@ END$$
 Delimiter ;
 
 Delimiter $$
-CREATE PROCEDURE sp_ActualizarPasajero(IN nombre varchar(10), IN apellidos varchar(10), IN correo varchar(10), IN codigoConductor int, IN deuda double(10,2), IN usuario varchar(10), IN contrasenia varchar(10),
+CREATE PROCEDURE sp_ActualizarPasajero(IN codigo int, IN nombre varchar(10), IN apellidos varchar(10), IN correo varchar(10), IN codigoConductor int, IN deuda double(10,2), IN usuario varchar(10), IN contrasenia varchar(10),
 									IN ubicacion varchar(50), IN destino varchar(50))
 BEGIN
 	UPDATE Pasajeros SET nombre=nombre, apellidos=apellidos, correo=correo, codigoConductor=codigoConductor, deuda=deuda, 
