@@ -24,23 +24,32 @@ public class PerfilPasajeroController implements Initializable {
     @FXML private TextField txtApellidos;
     @FXML private TextField txtCorreo;
     @FXML private Button btnActualizar;
-    LoginController login = new LoginController();
+    private ResultSet token;
+    private ResultSet pasajeroActual;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+        try{
+        PreparedStatement procedimientoToken = Conexion.getInstancia().getConexion().prepareCall("{call sp_GetToken()}");
+        token = procedimientoToken.executeQuery() ;
+        PreparedStatement procedimiento = Conexion.getInstancia().getConexion().prepareCall("{call sp_BuscarPasajero( ? )}");
+        procedimiento.setInt(1, token.getInt("codigoUsuario"));
+        pasajeroActual = procedimiento.executeQuery() ;
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        getDatos();
     }
     
     
+    
+    
     public void getDatos(){
-        try{
-            PreparedStatement procedimiento = Conexion.getInstancia().getConexion().prepareCall("{call sp_BuscarPasajero( ? )}");
-            procedimiento.setInt(1, login.getPasajeroActual().getCodigoPasajero());
-            ResultSet resultado = procedimiento.executeQuery() ;
-            
-            txtNombres.setText(resultado.getString("nombres"));
-            txtApellidos.setText(resultado.getString("apellidos"));
-            txtCorreo.setText(resultado.getString("correo"));     
+        try{      
+            txtNombres.setText(pasajeroActual.getString("nombres"));
+            txtApellidos.setText(pasajeroActual.getString("apellidos"));
+            txtCorreo.setText(pasajeroActual.getString("correo"));     
                 
         }catch(Exception e){
             e.printStackTrace();
@@ -51,19 +60,20 @@ public class PerfilPasajeroController implements Initializable {
     public void actualizar(){
          try{
              PreparedStatement procedimiento = Conexion.getInstancia().getConexion().prepareCall("{call sp_ActualizarPasajero(?,?,?,?,?,?,?,?,?)}");
-             Pasajero registro = login.getPasajeroActual();
-             registro.setNombre(txtNombres.getText());
-             registro.setApellidos(txtApellidos.getText());
-             registro.setCorreo(txtCorreo.getText());
-             procedimiento.setString(1, registro.getNombre());
-             procedimiento.setString(2, registro.getApellidos());
-             procedimiento.setString(3, registro.getCorreo());
-             procedimiento.setInt(4, registro.getCodigoConductor());
-             procedimiento.setDouble(5, registro.getDeuda());
-             procedimiento.setString(6, registro.getUsuario());
-             procedimiento.setString(7, registro.getContrasenia());
-             procedimiento.setString(8, registro.getUbicacion());
-             procedimiento.setString(9, registro.getDestino());
+             Pasajero pasajero = new Pasajero(pasajeroActual.getInt("codigoPasajero"), pasajeroActual.getString("nombre"), pasajeroActual.getString("apellidos"), pasajeroActual.getString("correo"), pasajeroActual.getInt("codigoConductor"), pasajeroActual.getInt("deuda"), pasajeroActual.getString("usuario"), pasajeroActual.getString("contrasenia"), pasajeroActual.getString("ubicacion"), pasajeroActual.getString("destino"));
+
+             pasajero.setNombre(txtNombres.getText());
+             pasajero.setApellidos(txtApellidos.getText());
+             pasajero.setCorreo(txtCorreo.getText());
+             procedimiento.setString(1, pasajero.getNombre());
+             procedimiento.setString(2, pasajero.getApellidos());
+             procedimiento.setString(3, pasajero.getCorreo());
+             procedimiento.setInt(4, pasajero.getCodigoConductor());
+             procedimiento.setDouble(5, pasajero.getDeuda());
+             procedimiento.setString(6, pasajero.getUsuario());
+             procedimiento.setString(7, pasajero.getContrasenia());
+             procedimiento.setString(8, pasajero.getUbicacion());
+             procedimiento.setString(9, pasajero.getDestino());
              procedimiento.execute();
              limpiarControles();
               JOptionPane.showMessageDialog(null, "Registro actualizado correctamente.");
