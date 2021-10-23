@@ -23,6 +23,8 @@ public class PerfilPasajeroController implements Initializable {
     @FXML private TextField txtNombres;
     @FXML private TextField txtApellidos;
     @FXML private TextField txtCorreo;
+    @FXML private TextField txtContrasenia;
+    @FXML private TextField txtRepetirContrasenia;
     @FXML private Button btnActualizar;
     private ResultSet token;
     private ResultSet pasajeroActual;
@@ -69,7 +71,7 @@ public class PerfilPasajeroController implements Initializable {
         try{      
             txtNombres.setText(p.getNombre());
             txtApellidos.setText(p.getApellidos());
-            txtCorreo.setText(p.getCorreo());     
+            txtCorreo.setText(p.getCorreo()); 
                 
         }catch(Exception e){
             e.printStackTrace();
@@ -85,6 +87,7 @@ public class PerfilPasajeroController implements Initializable {
              pasajero.setNombre(txtNombres.getText());
              pasajero.setApellidos(txtApellidos.getText());
              pasajero.setCorreo(txtCorreo.getText());
+             pasajero.setContrasenia(txtContrasenia.getText());
              procedimiento.setInt(1,pasajero.getCodigoPasajero());
              procedimiento.setString(2, pasajero.getNombre());
              procedimiento.setString(3, pasajero.getApellidos());
@@ -95,7 +98,15 @@ public class PerfilPasajeroController implements Initializable {
              procedimiento.setString(8, pasajero.getContrasenia());
              procedimiento.setString(9, pasajero.getUbicacion());
              procedimiento.setString(10, pasajero.getDestino());
-             procedimiento.execute();
+             
+             if(txtContrasenia.getText().equals(txtRepetirContrasenia.getText())){
+                procedimiento.execute();
+             }else{
+                 JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden!, Intente de nuevo.");
+                 txtContrasenia.setText("");
+                 txtRepetirContrasenia.setText("");
+             }
+         
              limpiarControles();
               JOptionPane.showMessageDialog(null, "Registro actualizado correctamente.");
              getDatos(pasajero);
