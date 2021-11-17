@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="721.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.carpooling.controller.RegistroController">
+   <children>
+      <ImageView fitHeight="491.0" fitWidth="728.0" layoutX="-7.0" layoutY="-18.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@src/org/carpooling/images/fondo%20%232.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="84.0" layoutX="596.0" layoutY="362.0" onMouseClicked="#login" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@src/org/carpooling/images/logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="215.0" layoutY="65.0" prefHeight="48.0" prefWidth="293.0" text="Gestión de pagos">
+         <font>
+            <Font name="Bell MT" size="40.0" />
+         </font>
+      </Label>
+      <Label layoutX="271.0" layoutY="403.0" text="Carpooling Gt" textFill="#276a7c">
+         <font>
+            <Font name="Bell MT" size="29.0" />
+         </font>
+      </Label>
+      <Button layoutX="264.0" layoutY="331.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="196.0" text="Agregar a lista deudores" />
+      <Button layoutX="260.0" layoutY="278.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="196.0" text="Pagará en el momento" />
+      <ToolBar layoutX="-3.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="45.0" prefWidth="721.0">
+         <items>
+            <Button mnemonicParsing="false" text="Salir" />
+         </items>
+      </ToolBar>
+      <Label layoutX="49.0" layoutY="154.0" text="Cantidad de personas">
+         <font>
+            <Font name="Bell MT" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="53.0" layoutY="202.0" text="Deberá pagar una cantidad de:">
+         <font>
+            <Font name="Bell MT" size="18.0" />
+         </font>
+      </Label>
+      <TextField layoutX="221.0" layoutY="150.0" prefHeight="31.0" prefWidth="61.0" />
+      <TextField layoutX="289.0" layoutY="198.0" prefHeight="31.0" prefWidth="61.0" />
+   </children>
+</AnchorPane>

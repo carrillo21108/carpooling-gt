@@ -34,32 +34,32 @@
       <TextField fx:id="txtNombres" layoutX="237.0" layoutY="151.0" prefHeight="39.0" prefWidth="274.0" />
       <TextField fx:id="txtApellidos" layoutX="237.0" layoutY="208.0" prefHeight="39.0" prefWidth="274.0" />
       <TextField fx:id="txtCorreo" layoutX="237.0" layoutY="261.0" prefHeight="39.0" prefWidth="274.0" />
-      <Label layoutX="55.0" layoutY="157.0" text="Nombre">
+      <Label layoutX="37.0" layoutY="158.0" text="Nombre">
          <font>
             <Font name="Bell MT" size="21.0" />
          </font>
       </Label>
-      <Label layoutX="50.0" layoutY="214.0" text="Apellidos">
+      <Label layoutX="42.0" layoutY="214.0" text="Apellidos">
          <font>
             <Font name="Bell MT" size="21.0" />
          </font>
       </Label>
-      <Label layoutX="55.0" layoutY="267.0" text="Correo">
+      <Label layoutX="42.0" layoutY="268.0" text="Correo">
          <font>
             <Font name="Bell MT" size="21.0" />
          </font>
       </Label>
-      <Label layoutX="55.0" layoutY="328.0" text="Contraseña">
+      <Label layoutX="42.0" layoutY="329.0" text="Contraseña">
          <font>
             <Font name="Bell MT" size="21.0" />
          </font>
       </Label>
-      <TextField fx:id="txtContrasenia" layoutX="237.0" layoutY="322.0" prefHeight="39.0" prefWidth="274.0" />
-      <Label layoutX="55.0" layoutY="383.0" text="Repetir contraseña">
+      <Label layoutX="45.0" layoutY="384.0" text="Repetir contraseña">
          <font>
             <Font name="Bell MT" size="21.0" />
          </font>
       </Label>
-      <TextField fx:id="txtRepetirContrasenia" layoutX="237.0" layoutY="377.0" prefHeight="39.0" prefWidth="274.0" />
+      <PasswordField fx:id="txtContrasenia" layoutX="239.0" layoutY="326.0" prefHeight="31.0" prefWidth="274.0" />
+      <PasswordField fx:id="txtRepetirContrasenia" layoutX="239.0" layoutY="381.0" prefHeight="31.0" prefWidth="274.0" />
    </children>
 </AnchorPane>
