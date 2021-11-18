@@ -8,6 +8,7 @@ package org.carpooling.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
+import org.carpooling.sistema.Principal;
 
 /**
  * FXML Controller class
@@ -15,6 +16,8 @@ import javafx.fxml.Initializable;
  * @author Usuario
  */
 public class GrupoPasajeroController implements Initializable {
+    
+    private Principal escenarioPrincipal;
 
     /**
      * Initializes the controller class.
@@ -22,6 +25,13 @@ public class GrupoPasajeroController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
+    public Principal getEscenarioPrincipal() {
+        return escenarioPrincipal;
+    }
+
+    public void setEscenarioPrincipal(Principal escenarioPrincipal) {
+        this.escenarioPrincipal = escenarioPrincipal;
+    }
 }

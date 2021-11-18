@@ -14,6 +14,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -41,6 +42,10 @@ public class GrupoConductorController implements Initializable {
     private TableColumn colApellidos;
     @FXML
     private TableColumn colRuta;
+    
+    
+    @FXML
+    private Button btnRechazar;
 
     /**
      * Initializes the controller class.
@@ -91,6 +96,14 @@ public class GrupoConductorController implements Initializable {
 
     public void expulsarPasajero() {
 
+    }
+
+    public Principal getEscenarioPrincipal() {
+        return escenarioPrincipal;
+    }
+
+    public void setEscenarioPrincipal(Principal escenarioPrincipal) {
+        this.escenarioPrincipal = escenarioPrincipal;
     }
 
 }

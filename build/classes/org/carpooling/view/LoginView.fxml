@@ -42,6 +42,7 @@
          </font>
       </Label>
       <TextField fx:id="txtUsuario" layoutX="230.0" layoutY="226.0" prefHeight="31.0" prefWidth="320.0" />
+      <PasswordField fx:id="txtContrasenia" layoutX="230.0" layoutY="269.0" prefHeight="31.0" prefWidth="320.0" />
       <Label layoutX="51.0" layoutY="231.0" text="Nombre de usuario" textFill="#f8f8f8">
          <font>
             <Font name="Bell MT" size="18.0" />
@@ -54,7 +55,6 @@
       </Label>
       <Button fx:id="btnIngresar" layoutX="230.0" layoutY="327.0" mnemonicParsing="false" onAction="#validarUsuario" prefHeight="31.0" prefWidth="84.0" text="Ingresar" />
       <Button fx:id="btnRegistro" layoutX="331.0" layoutY="327.0" mnemonicParsing="false" onAction="#ventanaRegistro" prefHeight="31.0" prefWidth="105.0" text="Registrarse" />
-      <PasswordField fx:id="txtContrasenia" layoutX="230.0" layoutY="269.0" prefHeight="31.0" prefWidth="320.0" />
       <RadioButton fx:id="radioPasajero" layoutX="229.0" layoutY="390.0" mnemonicParsing="false" onAction="#togglePasajero" selected="true" text="Pasajero" />
       <RadioButton fx:id="radioConductor" layoutX="328.0" layoutY="390.0" mnemonicParsing="false" onAction="#toggleConductor" text="Conductor" />
    </children>

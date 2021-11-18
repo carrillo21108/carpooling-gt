@@ -38,7 +38,7 @@ CREATE TABLE Pasajeros (
     nombre varchar(10) not null,
     apellidos varchar(10) not null,
     correo varchar(15) not null,
-	codigoConductor int not null,
+	codigoConductor int,
     deuda decimal(10,2) not null,
     usuario varchar(10) not null,
     contrasenia varchar(10) not null,

@@ -14,6 +14,8 @@ import org.carpooling.controller.LoginController;
 import org.carpooling.controller.PerfilConductorController;
 import org.carpooling.controller.RegistroController;
 import org.carpooling.controller.PerfilPasajeroController;
+import org.carpooling.controller.SolicitudesConductorController;
+import org.carpooling.controller.GrupoConductorController;
 
 
 public class Principal extends Application {
@@ -27,7 +29,7 @@ public class Principal extends Application {
        this.escenarioPrincipal=escenarioPrincipal;
        escenarioPrincipal.setTitle("Carpooling GT");
        escenarioPrincipal.getIcons().add(new Image("/org/carpooling/images/logo.png"));
-       login();
+       ventanaGrupoConductor();
        escenarioPrincipal.show();
     }
     
@@ -61,6 +63,25 @@ public class Principal extends Application {
     public void ventanaPerfilConductor(){
         try{
             PerfilConductorController registro = (PerfilConductorController)cambiarEscena("PerfilConductorView.fxml", 721, 452);
+            registro.setEscenarioPrincipal(this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    public void ventanaSolicitudesConductor(){
+        try{
+            SolicitudesConductorController registro = (SolicitudesConductorController)cambiarEscena("SolicitudesView.fxml", 721, 452);
+            registro.setEscenarioPrincipal(this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    
+    public void ventanaGrupoConductor(){
+        try{
+            GrupoConductorController registro = (GrupoConductorController)cambiarEscena("GrupoConductorView.fxml", 721, 452);
             registro.setEscenarioPrincipal(this);
         }catch(Exception e){
             e.printStackTrace();
