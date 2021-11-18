@@ -101,7 +101,7 @@ public class BuscarConductorController implements Initializable {
                                         resultado.getString("contrasenia"),
                                         resultado.getString("ubicacion"),
                                         resultado.getString("destino"),
-                                        resultado.getInt("codigoAuto"),
+                                        resultado.getInt("codigoCarro"),
                                         resultado.getInt("espaciosDisponibles")));
             }
         }catch(Exception e){

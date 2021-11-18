@@ -10,12 +10,14 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import org.carpooling.controller.BuscarConductorController;
 import org.carpooling.controller.LoginController;
 import org.carpooling.controller.PerfilConductorController;
 import org.carpooling.controller.RegistroController;
 import org.carpooling.controller.PerfilPasajeroController;
 import org.carpooling.controller.SolicitudesConductorController;
 import org.carpooling.controller.GrupoConductorController;
+import org.carpooling.controller.MenuPasajeroController;
 
 
 public class Principal extends Application {
@@ -29,7 +31,7 @@ public class Principal extends Application {
        this.escenarioPrincipal=escenarioPrincipal;
        escenarioPrincipal.setTitle("Carpooling GT");
        escenarioPrincipal.getIcons().add(new Image("/org/carpooling/images/logo.png"));
-       login();
+       ventanaSolicitudesConductor();
        escenarioPrincipal.show();
     }
     
@@ -82,6 +84,24 @@ public class Principal extends Application {
     public void ventanaGrupoConductor(){
         try{
             GrupoConductorController registro = (GrupoConductorController)cambiarEscena("GrupoConductorView.fxml", 721, 452);
+            registro.setEscenarioPrincipal(this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    public void ventanaBuscarConductor(){
+        try{
+            BuscarConductorController registro = (BuscarConductorController)cambiarEscena("BuscarConductorView.fxml", 721, 452);
+            registro.setEscenarioPrincipal(this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    public void ventanaMenuPasajero(){
+        try{
+            MenuPasajeroController registro = (MenuPasajeroController)cambiarEscena("MenuInicioPasajeroView.fxml", 603, 379);
             registro.setEscenarioPrincipal(this);
         }catch(Exception e){
             e.printStackTrace();
