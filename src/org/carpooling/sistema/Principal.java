@@ -106,6 +106,7 @@ public class Principal extends Application {
     public void ventanaMenuConductor(){
         try {
             MenuConductorController registro = (MenuConductorController)cambiarEscena("MenuInicioConductorView.fxml", 600, 400);
+            registro.setEscenarioPrincipal(this);
         }catch(Exception e){
             e.printStackTrace();
         }
