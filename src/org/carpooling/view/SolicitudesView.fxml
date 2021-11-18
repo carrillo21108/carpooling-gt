@@ -33,7 +33,7 @@
       <TableView fx:id="tblSolicitudes" layoutX="16.0" layoutY="152.0" prefHeight="182.0" prefWidth="690.0">
          <columns>
             <TableColumn fx:id="colCodigo" prefWidth="46.0" text="No." />
-            <TableColumn fx:id="colNombres" prefWidth="108.0" text="Nombres" />
+            <TableColumn fx:id="colNombre" prefWidth="108.0" text="Nombres" />
             <TableColumn fx:id="colApellidos" prefWidth="108.0" text="Apellidos" />
             <TableColumn fx:id="colUbicacion" prefWidth="436.0" text="Ruta" />
          </columns>

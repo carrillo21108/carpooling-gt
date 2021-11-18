@@ -29,7 +29,7 @@ public class Principal extends Application {
        this.escenarioPrincipal=escenarioPrincipal;
        escenarioPrincipal.setTitle("Carpooling GT");
        escenarioPrincipal.getIcons().add(new Image("/org/carpooling/images/logo.png"));
-       ventanaGrupoConductor();
+       login();
        escenarioPrincipal.show();
     }
     

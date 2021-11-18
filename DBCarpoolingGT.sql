@@ -58,6 +58,21 @@ CREATE TABLE Tokens (
     primary key PK_codigoToken (codigoToken)
 );
 
+CREATE TABLE Solicitudes (
+	codigoSolicitud int not null auto_increment,
+    codigoPasajero int not null,
+    nombre varchar(10) not null,
+    apellidos varchar(10) not null,
+    ubicacion varchar(50) not null,
+    codigoConductor int not null,
+    
+    primary key PK_codigoSolicitud (codigoSolicitud),
+    constraint FK_Solicitudes_Pasajeros foreign key (codigoPasajero)
+		references Pasajeros (codigoPasajero) ON DELETE CASCADE,
+    constraint FK_Solicitudes_Conductores foreign key (codigoConductor)
+		references Conductores (codigoConductor) ON DELETE CASCADE
+);
+
 
 -- Procedimientos tabla Carros
 Delimiter $$
@@ -296,5 +311,60 @@ Delimiter $$
 CREATE PROCEDURE sp_DeleteToken()
 BEGIN
 	TRUNCATE TABLE Tokens;
+END$$
+Delimiter ;
+
+-- Procedimiento Set Solicitud
+Delimiter $$
+CREATE PROCEDURE sp_AgregarSolicitud(IN codigoPasajero int, IN nombre varchar(10), IN apellidos varchar(10), IN ubicacion varchar(50), IN codigoConductor int)
+BEGIN 
+	INSERT INTO Solicitudes (codigoPasajero, nombre, apellidos, ubicacion, codigoConductor) VALUES (codigoPasajero, nombre, apellidos, ubicacion, codigoConductor);
+END$$
+Delimiter ;
+
+-- Procedimiento Delete Solicitud 
+Delimiter $$
+CREATE PROCEDURE sp_EliminarSolicitud(IN codigo int)
+BEGIN
+	DELETE FROM Solicitudes WHERE codigoSolicitud=codigo;
+END$$
+Delimiter ;
+
+-- Procedimiento Obtener Solicitudes
+Delimiter $$
+CREATE PROCEDURE sp_ObtenerSolicitudes(IN codigo int)
+BEGIN 
+	SELECT
+		Solicitudes.codigoSolicitud,
+        Solicitudes.codigoPasajero,
+        Solicitudes.nombre, 
+        Solicitudes.apellidos, 
+        Solicitudes.ubicacion,
+        Solicitudes.codigoConductor
+        FROM Solicitudes WHERE codigoConductor=codigo;
+END$$
+Delimiter ;
+
+-- Procedimiento Obtener Solicitudes
+Delimiter $$
+CREATE PROCEDURE sp_ObtenerSolicitud(IN codigo int)
+BEGIN 
+	SELECT
+		Solicitudes.codigoSolicitud,
+        Solicitudes.codigoPasajero,
+        Solicitudes.nombre, 
+        Solicitudes.apellidos, 
+        Solicitudes.ubicacion,
+        Solicitudes.codigoConductor
+        FROM Solicitudes WHERE codigoSolicitud=codigo;
+END$$
+Delimiter ;
+
+-- Procedimiento Aceptar Solicitud
+Delimiter $$
+CREATE PROCEDURE sp_AceptarSolicitud(IN codigoC int, IN codigoP int)
+BEGIN
+	UPDATE Pasajeros SET codigoConductor=codigoC WHERE codigoPasajero=codigoP;
+	DELETE FROM Solicitudes WHERE codigoSolicitud=codigo;
 END$$
 Delimiter ;
