@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import org.carpooling.sistema.Principal;
 /**
  *
@@ -19,6 +20,7 @@ import org.carpooling.sistema.Principal;
 public class MenuConductorController implements Initializable {
     
     @FXML private Button cancelar;
+    @FXML private MenuItem  verGrupoItem;
     private Principal escenarioPrincipal;
     
     @Override
@@ -33,6 +35,12 @@ public class MenuConductorController implements Initializable {
     public void setEscenarioPrincipal(Principal escenarioPrincipal) {
         this.escenarioPrincipal = escenarioPrincipal;
     }   
+    
+        
+    public void verGrupo() {
+        escenarioPrincipal.ventanaGrupoConductor();
+    }
+
     public void obtenerPasajeros(){
         
     

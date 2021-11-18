@@ -360,6 +360,9 @@ BEGIN
 END$$
 Delimiter ;
 
+
+
+
 -- Procedimiento Aceptar Solicitud
 Delimiter $$
 CREATE PROCEDURE sp_AceptarSolicitud(IN codigo int, IN codigoC int, IN codigoP int)
@@ -368,3 +371,24 @@ BEGIN
 	DELETE FROM Solicitudes WHERE codigoSolicitud=codigo;
 END$$
 Delimiter ;
+
+
+-- Procedimiento Listar Grupo
+Delimiter $$
+CREATE PROCEDURE sp_ListarGrupo(IN codigoC int)
+BEGIN
+	SELECT
+		Pasajeros.codigoPasajero, 
+        Pasajeros.nombre, 
+        Pasajeros.apellidos,
+        Pasajeros.correo,
+        Pasajeros.codigoConductor,
+        Pasajeros.deuda,
+        Pasajeros.usuario,
+        Pasajeros.contrasenia,
+        Pasajeros.ubicacion,
+        Pasajeros.destino
+        FROM Pasajeros WHERE codigoConductor=codigoC;
+
+END$$
+Delimiter ; 
