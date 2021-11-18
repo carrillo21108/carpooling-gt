@@ -78,7 +78,7 @@
       </Label>
       <RadioButton layoutX="439.0" layoutY="316.0" mnemonicParsing="false" text="Masculino" />
       <RadioButton layoutX="572.0" layoutY="316.0" mnemonicParsing="false" text="Femenino" />
-      <Label layoutX="37.0" layoutY="316.0" text="Tu ubiación">
+      <Label layoutX="37.0" layoutY="316.0" text="Tu ubicación">
          <font>
             <Font name="Bell MT" size="18.0" />
          </font>

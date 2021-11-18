@@ -186,19 +186,19 @@ Delimiter ;
 
 -- Procedimientos tabla Pasajeros
 Delimiter $$
-CREATE PROCEDURE sp_AgregarPasajero(IN nombre varchar(10), IN apellidos varchar(10), IN correo varchar(10), IN codigoConductor int, IN deuda double(10,2), IN usuario varchar(10), IN contrasenia varchar(10),
+CREATE PROCEDURE sp_AgregarPasajero(IN nombre varchar(10), IN apellidos varchar(10), IN correo varchar(10), IN deuda double(10,2), IN usuario varchar(10), IN contrasenia varchar(10),
 									IN ubicacion varchar(50), IN destino varchar(50))
 BEGIN
-	INSERT INTO Pasajeros (nombre, apellidos, correo, codigoConductor, deuda, usuario, contrasenia, ubicacion, destino)
-		VALUES(nombre, apellidos, correo, codigoConductor, deuda, usuario, contrasenia, ubicacion, destino);
+	INSERT INTO Pasajeros (nombre, apellidos, correo, deuda, usuario, contrasenia, ubicacion, destino)
+		VALUES(nombre, apellidos, correo, deuda, usuario, contrasenia, ubicacion, destino);
 END$$
 Delimiter ;
 
 Delimiter $$
-CREATE PROCEDURE sp_ActualizarPasajero(IN codigo int, IN nombre varchar(10), IN apellidos varchar(10), IN correo varchar(10), IN codigoConductor int, IN deuda double(10,2), IN usuario varchar(10), IN contrasenia varchar(10),
+CREATE PROCEDURE sp_ActualizarPasajero(IN codigo int, IN nombre varchar(10), IN apellidos varchar(10), IN correo varchar(10), IN deuda double(10,2), IN usuario varchar(10), IN contrasenia varchar(10),
 									IN ubicacion varchar(50), IN destino varchar(50))
 BEGIN
-	UPDATE Pasajeros SET nombre=nombre, apellidos=apellidos, correo=correo, codigoConductor=codigoConductor, deuda=deuda, 
+	UPDATE Pasajeros SET nombre=nombre, apellidos=apellidos, correo=correo, deuda=deuda, 
 		usuario=usuario, contrasenia=contrasenia, ubicacion=ubicacion, destino=destino WHERE codigoPasajero=codigo;
 END$$
 Delimiter ;
@@ -362,7 +362,7 @@ Delimiter ;
 
 -- Procedimiento Aceptar Solicitud
 Delimiter $$
-CREATE PROCEDURE sp_AceptarSolicitud(IN codigoC int, IN codigoP int)
+CREATE PROCEDURE sp_AceptarSolicitud(IN codigo int, IN codigoC int, IN codigoP int)
 BEGIN
 	UPDATE Pasajeros SET codigoConductor=codigoC WHERE codigoPasajero=codigoP;
 	DELETE FROM Solicitudes WHERE codigoSolicitud=codigo;

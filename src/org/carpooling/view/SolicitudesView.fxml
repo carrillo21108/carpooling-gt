@@ -29,7 +29,7 @@
             <Font name="Bell MT" size="29.0" />
          </font>
       </Label>
-      <Button fx:id="btnAceptar" layoutX="16.0" layoutY="356.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="104.0" text="Aceptar" />
+      <Button fx:id="btnAceptar" layoutX="16.0" layoutY="356.0" mnemonicParsing="false" onAction="#aceptar" prefHeight="31.0" prefWidth="104.0" text="Aceptar" />
       <TableView fx:id="tblSolicitudes" layoutX="16.0" layoutY="152.0" prefHeight="182.0" prefWidth="690.0">
          <columns>
             <TableColumn fx:id="colCodigo" prefWidth="46.0" text="No." />
@@ -41,7 +41,7 @@
             <InnerShadow color="#00aff4" />
          </effect>
       </TableView>
-      <Button fx:id="btnRechazar" layoutX="132.0" layoutY="356.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="104.0" text="Rechazar" />
+      <Button fx:id="btnRechazar" layoutX="132.0" layoutY="356.0" mnemonicParsing="false" onAction="#rechazar" prefHeight="31.0" prefWidth="104.0" text="Rechazar" />
       <ToolBar layoutX="-3.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="45.0" prefWidth="721.0">
         <items>
           <Button fx:id="btnSalir" mnemonicParsing="false" text="Salir" />

@@ -81,7 +81,7 @@ public class PerfilPasajeroController implements Initializable {
     
     public void actualizar(){
          try{
-             PreparedStatement procedimiento = Conexion.getInstancia().getConexion().prepareCall("{call sp_ActualizarPasajero(?,?,?,?,?,?,?,?,?,?)}");
+             PreparedStatement procedimiento = Conexion.getInstancia().getConexion().prepareCall("{call sp_ActualizarPasajero(?,?,?,?,?,?,?,?,?)}");
              
 
              pasajero.setNombre(txtNombres.getText());
@@ -92,7 +92,6 @@ public class PerfilPasajeroController implements Initializable {
              procedimiento.setString(2, pasajero.getNombre());
              procedimiento.setString(3, pasajero.getApellidos());
              procedimiento.setString(4, pasajero.getCorreo());
-             procedimiento.setInt(5, pasajero.getCodigoConductor());
              procedimiento.setDouble(6, pasajero.getDeuda());
              procedimiento.setString(7, pasajero.getUsuario());
              procedimiento.setString(8, pasajero.getContrasenia());

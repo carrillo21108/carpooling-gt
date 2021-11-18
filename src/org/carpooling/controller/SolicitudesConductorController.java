@@ -19,6 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javax.swing.JOptionPane;
 import org.carpooling.bean.Conductor;
 import org.carpooling.bean.Solicitud;
 import org.carpooling.db.Conexion;
@@ -119,7 +120,47 @@ public class SolicitudesConductorController implements Initializable {
         this.escenarioPrincipal = escenarioPrincipal;
     }
     
-    public void obtenerSolicitudes(){
-        
+    public void aceptar(){
+        if(tblSolicitudes.getSelectionModel().getSelectedItem() != null){
+            int respuesta = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea aceptar la solicitud?", "Aceptar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if(respuesta==JOptionPane.YES_OPTION){
+                try{
+                PreparedStatement procedimiento = Conexion.getInstancia().getConexion().prepareCall("{call sp_AceptarSolicitud(?,?,?)}");
+                procedimiento.setInt(1, ((Solicitud)tblSolicitudes.getSelectionModel().getSelectedItem()).getCodigoSolicitud());
+                procedimiento.setInt(2, ((Solicitud)tblSolicitudes.getSelectionModel().getSelectedItem()).getCodigoPasajero());
+                procedimiento.setInt(3, ((Solicitud)tblSolicitudes.getSelectionModel().getSelectedItem()).getCodigoConductor());
+                procedimiento.execute();
+                listaSolicitudes.remove(tblSolicitudes.getSelectionModel().getSelectedIndex());
+                tblSolicitudes.getSelectionModel().select(null);
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+            }else{
+                tblSolicitudes.getSelectionModel().select(null);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un elemento.");
+        }
+    }
+    
+    public void rechazar(){
+        if(tblSolicitudes.getSelectionModel().getSelectedItem() != null){
+            int respuesta = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea rechazar la solicitud?", "Rechazar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if(respuesta==JOptionPane.YES_OPTION){
+                try{
+                PreparedStatement procedimiento = Conexion.getInstancia().getConexion().prepareCall("{call sp_EliminarSolicitud(?)}");
+                procedimiento.setInt(1, ((Solicitud)tblSolicitudes.getSelectionModel().getSelectedItem()).getCodigoSolicitud());
+                procedimiento.execute();
+                listaSolicitudes.remove(tblSolicitudes.getSelectionModel().getSelectedIndex());
+                tblSolicitudes.getSelectionModel().select(null);
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+            }else{
+                tblSolicitudes.getSelectionModel().select(null);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un elemento.");
+        }
     }
 }
