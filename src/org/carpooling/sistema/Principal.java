@@ -10,12 +10,12 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import org.carpooling.controller.BuscarConductorController;
 import org.carpooling.controller.LoginController;
-import org.carpooling.controller.MenuPasajeroController;
 import org.carpooling.controller.PerfilConductorController;
 import org.carpooling.controller.RegistroController;
 import org.carpooling.controller.PerfilPasajeroController;
+import org.carpooling.controller.SolicitudesConductorController;
+import org.carpooling.controller.GrupoConductorController;
 
 
 public class Principal extends Application {
@@ -69,18 +69,19 @@ public class Principal extends Application {
         }
     }
     
-    public void ventanaBuscarConductor(){
+    public void ventanaSolicitudesConductor(){
         try{
-            BuscarConductorController registro = (BuscarConductorController)cambiarEscena("BuscarConductorView.fxml", 721, 452);
+            SolicitudesConductorController registro = (SolicitudesConductorController)cambiarEscena("SolicitudesView.fxml", 721, 452);
             registro.setEscenarioPrincipal(this);
         }catch(Exception e){
             e.printStackTrace();
         }
     }
     
-    public void ventanaMenuPasajero(){
+    
+    public void ventanaGrupoConductor(){
         try{
-            MenuPasajeroController registro = (MenuPasajeroController)cambiarEscena("MenuInicioPasajeroView.fxml", 721, 452);
+            GrupoConductorController registro = (GrupoConductorController)cambiarEscena("GrupoConductorView.fxml", 721, 452);
             registro.setEscenarioPrincipal(this);
         }catch(Exception e){
             e.printStackTrace();

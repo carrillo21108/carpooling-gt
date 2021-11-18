@@ -7,16 +7,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="721.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.carpooling.controller.RegistroController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="721.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.carpooling.controller.SolicitudesConductorController">
    <children>
       <ImageView fitHeight="491.0" fitWidth="728.0" layoutX="-7.0" layoutY="-18.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@src/org/carpooling/images/fondo%20%232.jpg" />
+            <Image url="@../images/fondo%20%232.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="64.0" fitWidth="84.0" layoutX="36.0" layoutY="57.0" onMouseClicked="#login" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="64.0" fitWidth="84.0" layoutX="36.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@src/org/carpooling/images/logo.png" />
+            <Image url="@../images/logo.png" />
          </image>
       </ImageView>
       <Label layoutX="260.0" layoutY="71.0" prefHeight="48.0" prefWidth="180.0" text="Solicitudes">
@@ -29,22 +29,22 @@
             <Font name="Bell MT" size="29.0" />
          </font>
       </Label>
-      <Button layoutX="16.0" layoutY="356.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="104.0" text="Aceptar" />
-      <TableView fx:id="tblPacientes" layoutX="16.0" layoutY="152.0" onKeyReleased="#seleccionarElemento" onMouseClicked="#seleccionarElemento" prefHeight="182.0" prefWidth="690.0">
+      <Button fx:id="btnAceptar" layoutX="16.0" layoutY="356.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="104.0" text="Aceptar" />
+      <TableView fx:id="tblSolicitudes" layoutX="16.0" layoutY="152.0" prefHeight="182.0" prefWidth="690.0">
          <columns>
             <TableColumn fx:id="colCodigo" prefWidth="46.0" text="No." />
-            <TableColumn fx:id="colNombres" prefWidth="108.0" text="Nombres" />
+            <TableColumn fx:id="colNombre" prefWidth="108.0" text="Nombres" />
             <TableColumn fx:id="colApellidos" prefWidth="108.0" text="Apellidos" />
-            <TableColumn fx:id="colDPI" prefWidth="436.0" text="Ruta" />
+            <TableColumn fx:id="colUbicacion" prefWidth="436.0" text="Ruta" />
          </columns>
          <effect>
             <InnerShadow color="#00aff4" />
          </effect>
       </TableView>
-      <Button layoutX="132.0" layoutY="356.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="104.0" text="Rechazar" />
+      <Button fx:id="btnRechazar" layoutX="132.0" layoutY="356.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="104.0" text="Rechazar" />
       <ToolBar layoutX="-3.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="45.0" prefWidth="721.0">
         <items>
-          <Button mnemonicParsing="false" text="Salir" />
+          <Button fx:id="btnSalir" mnemonicParsing="false" text="Salir" />
         </items>
       </ToolBar>
    </children>
