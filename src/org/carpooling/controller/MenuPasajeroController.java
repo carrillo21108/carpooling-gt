@@ -40,4 +40,8 @@ public class MenuPasajeroController implements Initializable{
         this.escenarioPrincipal = escenarioPrincipal;
     }
     
+    public void ventanaBuscarConductor(){
+        this.escenarioPrincipal.ventanaBuscarConductor();
+    }
+    
 }
