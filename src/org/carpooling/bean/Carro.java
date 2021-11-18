@@ -14,13 +14,13 @@ public class Carro {
     private int codigoAuto;
     private String marca;
     private int modelo;
-    private String nombre;
+    private int cantAsientos;
 
-    public Carro(int codigoAuto, String marca, int modelo, String nombre) {
+    public Carro(int codigoAuto, String marca, int modelo, int cantAsientos) {
         this.codigoAuto = codigoAuto;
         this.marca = marca;
         this.modelo = modelo;
-        this.nombre = nombre;
+        this.cantAsientos = cantAsientos;
     }
 
     public Carro() {
@@ -50,17 +50,17 @@ public class Carro {
         this.modelo = modelo;
     }
 
-    public String getNombre() {
-        return nombre;
+    public int getCantAsientos() {
+        return cantAsientos;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setCantAsientos(int cantAsientos) {
+        this.cantAsientos = cantAsientos;
     }
 
     @Override
     public String toString() {
-        return "Carro{" + "codigoAuto=" + codigoAuto + ", marca=" + marca + ", modelo=" + modelo + ", nombre=" + nombre + '}';
+        return "Carro{" + "codigoAuto=" + codigoAuto + ", marca=" + marca + ", modelo=" + modelo + ", cantAsientos=" + cantAsientos + '}';
     }
     
 }

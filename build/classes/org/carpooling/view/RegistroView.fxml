@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="721.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.carpooling.controller.RegistroController">
    <children>
-      <ImageView fitHeight="491.0" fitWidth="728.0" layoutX="-7.0" layoutY="-18.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="491.0" fitWidth="728.0" layoutX="-3.0" layoutY="-13.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/fondo%20%232.jpg" />
          </image>
@@ -34,62 +34,74 @@
             <Font name="Bell MT" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="223.0" layoutY="139.0" prefHeight="31.0" prefWidth="158.0" />
-      <Label layoutX="39.0" layoutY="144.0" text="Nombres y apellidos">
+      <TextField fx:id="txtNombres" layoutX="216.0" layoutY="150.0" prefHeight="31.0" prefWidth="158.0" />
+      <Label layoutX="39.0" layoutY="154.0" text="Nombres">
          <font>
             <Font name="Bell MT" size="18.0" />
          </font>
       </Label>
-      <Button layoutX="506.0" layoutY="377.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="104.0" text="Registrarse" />
-      <Label layoutX="430.0" layoutY="143.0" text="CUI">
+      <Button fx:id="btnRegistrarse" layoutX="501.0" layoutY="412.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="104.0" text="Registrarse" />
+      <Label layoutX="430.0" layoutY="143.0" text="Usuario">
          <font>
             <Font name="Bell MT" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="490.0" layoutY="139.0" prefHeight="31.0" prefWidth="158.0" />
-      <Label layoutX="36.0" layoutY="186.0" text="Correo">
+      <TextField fx:id="txtUsuario" layoutX="504.0" layoutY="140.0" prefHeight="31.0" prefWidth="158.0" />
+      <Label layoutX="42.0" layoutY="256.0" text="Correo">
          <font>
             <Font name="Bell MT" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="223.0" layoutY="182.0" prefHeight="31.0" prefWidth="158.0" />
-      <Label layoutX="39.0" layoutY="228.0" text="Contraseña">
+      <TextField fx:id="txtApellidos" layoutX="216.0" layoutY="201.0" prefHeight="31.0" prefWidth="158.0" />
+      <Label layoutX="39.0" layoutY="298.0" text="Contraseña">
          <font>
             <Font name="Bell MT" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="445.0" layoutY="197.0" text="Tipo de cuenta">
+      <Label layoutX="443.0" layoutY="256.0" text="Tipo de cuenta">
          <font>
             <Font name="Bell MT" size="18.0" />
          </font>
       </Label>
-      <RadioButton layoutX="438.0" layoutY="239.0" mnemonicParsing="false" text="Conductor" />
-      <RadioButton layoutX="569.0" layoutY="239.0" mnemonicParsing="false" text="Pasajero" />
-      <TextField layoutX="223.0" layoutY="267.0" prefHeight="31.0" prefWidth="158.0" />
-      <Label layoutX="36.0" layoutY="271.0" text="No. de placa">
+      <RadioButton fx:id="radioConductor" layoutX="442.0" layoutY="288.0" mnemonicParsing="false" onAction="#toggleConductor" text="Conductor" />
+      <RadioButton fx:id="radioPasajero" layoutX="564.0" layoutY="288.0" mnemonicParsing="false" onAction="#togglePasajero" selected="true" text="Pasajero" />
+      <Label layoutX="445.0" layoutY="187.0" text="Sexo">
          <font>
             <Font name="Bell MT" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="445.0" layoutY="282.0" text="Sexo">
+      <RadioButton fx:id="radioMasculino" layoutX="443.0" layoutY="214.0" mnemonicParsing="false" onAction="#toggleMasculino" text="Masculino" />
+      <RadioButton fx:id="radioFemenino" layoutX="565.0" layoutY="216.0" mnemonicParsing="false" onAction="#toggleFemenino" selected="true" text="Femenino" />
+      <Label layoutX="42.0" layoutY="347.0" text="Tu ubicación">
          <font>
             <Font name="Bell MT" size="18.0" />
          </font>
       </Label>
-      <RadioButton layoutX="439.0" layoutY="316.0" mnemonicParsing="false" text="Masculino" />
-      <RadioButton layoutX="572.0" layoutY="316.0" mnemonicParsing="false" text="Femenino" />
-      <Label layoutX="37.0" layoutY="316.0" text="Tu ubicación">
+      <Label layoutX="44.0" layoutY="389.0" text="Destino">
          <font>
             <Font name="Bell MT" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="39.0" layoutY="366.0" text="Destino">
+      <TextField fx:id="txtUbicacion" layoutX="216.0" layoutY="343.0" prefHeight="31.0" prefWidth="158.0" />
+      <TextField fx:id="txtDestino" layoutX="216.0" layoutY="385.0" prefHeight="31.0" prefWidth="158.0" />
+      <PasswordField fx:id="txtContrasenia" layoutX="216.0" layoutY="294.0" prefHeight="31.0" prefWidth="158.0" />
+      <TextField fx:id="txtCorreo" layoutX="216.0" layoutY="252.0" prefHeight="31.0" prefWidth="158.0" />
+      <Label layoutX="38.0" layoutY="205.0" text="Apellidos">
          <font>
             <Font name="Bell MT" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="223.0" layoutY="311.0" prefHeight="31.0" prefWidth="158.0" />
-      <TextField layoutX="223.0" layoutY="353.0" prefHeight="31.0" prefWidth="158.0" />
-      <PasswordField layoutX="223.0" layoutY="224.0" prefHeight="31.0" prefWidth="158.0" />
+      <TextField fx:id="txtModelo" layoutX="443.0" layoutY="359.0" prefHeight="31.0" prefWidth="84.0" />
+      <TextField fx:id="txtMarca" layoutX="545.0" layoutY="359.0" prefHeight="21.0" prefWidth="143.0" />
+      <Label layoutX="443.0" layoutY="336.0" text="Modelo">
+         <font>
+            <Font name="Bell MT" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="545.0" layoutY="336.0" text="Marca">
+         <font>
+            <Font name="Bell MT" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
