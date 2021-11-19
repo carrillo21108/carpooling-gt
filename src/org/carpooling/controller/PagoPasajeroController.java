@@ -121,8 +121,9 @@ public class PagoPasajeroController implements Initializable {
             int respuesta = JOptionPane.showConfirmDialog(null, "¿Está seguro de que desea pagar el viaje?", "Pago de deuda", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if(respuesta == JOptionPane.YES_OPTION){
                 try{
-                    PreparedStatement procedimiento = Conexion.getInstancia().getConexion().prepareCall("{call sp_EliminarDeuda(?)}");
+                    PreparedStatement procedimiento = Conexion.getInstancia().getConexion().prepareCall("{call sp_EliminarDeuda(?,?)}");
                     procedimiento.setInt(1,((Deuda)tblDeudas.getSelectionModel().getSelectedItem()).getCodigoDeuda());
+                    procedimiento.setDouble(2,((Deuda)tblDeudas.getSelectionModel().getSelectedItem()).getMonto());
                     procedimiento.execute();
                     listaDeudas.remove(tblDeudas.getSelectionModel().getSelectedIndex());
                         }catch(Exception e){

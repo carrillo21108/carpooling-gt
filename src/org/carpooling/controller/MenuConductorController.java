@@ -58,7 +58,7 @@ public class MenuConductorController implements Initializable {
     }
     
     public void salir(){
-        System.exit(0);
+        escenarioPrincipal.login();
     }
 
     public void obtenerPasajeros(){

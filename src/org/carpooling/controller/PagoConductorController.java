@@ -73,7 +73,7 @@ public class PagoConductorController implements Initializable{
         tblPasajero.setItems(getPasajeros());
         colNombres.setCellValueFactory(new PropertyValueFactory<Pasajero, String>("nombre"));
         colDeuda.setCellValueFactory(new PropertyValueFactory<Pasajero, String>("deuda"));
-        colRuta.setCellValueFactory(new PropertyValueFactory<Pasajero, String>("ruta"));
+        colRuta.setCellValueFactory(new PropertyValueFactory<Pasajero, String>("ubicacion"));
     }
     
 

@@ -23,6 +23,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javax.swing.JOptionPane;
 import org.carpooling.bean.Conductor;
+import org.carpooling.bean.Deuda;
 import org.carpooling.bean.Pasajero;
 import org.carpooling.sistema.Principal;
 import org.carpooling.db.Conexion;
@@ -56,6 +57,7 @@ public class PuntosPorRecorrerController implements Initializable {
 
     private long tiempoInicial;
     private long tiempoTranscurrido;
+    ArrayList<Pasajero> lista = new ArrayList<Pasajero>();
     
       @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -85,7 +87,6 @@ public class PuntosPorRecorrerController implements Initializable {
     
     //metodo para obtener pasajeros con el codigo de conductor correspondiente
     public ObservableList<Pasajero> getPasajeros() {
-        ArrayList<Pasajero> lista = new ArrayList<Pasajero>();
 
         try {
             PreparedStatement procedimiento = Conexion.getInstancia().getConexion().prepareCall("{call sp_ListarGrupo(?)}");
@@ -131,6 +132,29 @@ public class PuntosPorRecorrerController implements Initializable {
         double total = 5 + (0.6*minutos) + (1.19 * km);
         txtTiempo.setText(String.format("%02d:%02d:%02d",horas,minutos,segundos));
         txtMonto.setText("Q"+String.valueOf(total));
+        
+        for(Pasajero pasajero:lista){
+            agregarDeuda(total, pasajero.getCodigoPasajero(), pasajero.getNombre(), pasajero.getApellidos(), pasajero.getDestino(), total + pasajero.getDeuda());
+        }
+        
+    }
+    
+    
+    
+    public void agregarDeuda(Double totalParcial, int codidoPasajero, String nombre, String apellidos, String destino, Double total){
+        try {
+            PreparedStatement procedimiento = Conexion.getInstancia().getConexion().prepareCall("{call sp_AgregarDeuda(?,?,?,?,?,?)}");
+            procedimiento.setDouble(1, totalParcial);
+            procedimiento.setInt(2, codidoPasajero);
+            procedimiento.setInt(3, codigoUsuario);
+            procedimiento.setString(4, nombre + " " + apellidos);
+            procedimiento.setString(5, destino);
+            procedimiento.setDouble(6, total);
+            procedimiento.executeQuery();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         
     }
     

@@ -419,9 +419,10 @@ Delimiter ;
 
 -- Procedimiento Set Deuda
 Delimiter $$
-CREATE PROCEDURE sp_AgregarDeuda(IN monto decimal(10,2), IN codigoPasajero int, IN codigoConductor int, IN nombreConductor varchar(20), IN ruta varchar(50))
+CREATE PROCEDURE sp_AgregarDeuda(IN montoParcial decimal(10,2), IN codigoP int, IN codigoConductor int, IN nombreConductor varchar(20), IN ruta varchar(50), IN montoTotal decimal(10,2))
 BEGIN 
-	INSERT INTO Deudas (monto, codigoPasajero, codigoConductor, nombreConductor, ruta) VALUES (monto, codigoPasajero, codigoConductor, nombreConductor, ruta);
+	INSERT INTO Deudas (monto, codigoPasajero, codigoConductor, nombreConductor, ruta) VALUES (montoParcial, codigoP, codigoConductor, nombreConductor, ruta);
+    UPDATE Pasajeros SET deuda=montoTotal WHERE codigoPasajero=codigoP;
 END$$
 Delimiter ;
 
@@ -443,9 +444,10 @@ Delimiter ;
 
 -- Procedimiento Delete Deuda 
 Delimiter $$
-CREATE PROCEDURE sp_EliminarDeuda(IN codigo int)
+CREATE PROCEDURE sp_EliminarDeuda(IN codigo int, IN monto decimal(10,2))
 BEGIN
 	DELETE FROM Deudas WHERE codigoDeuda=codigo;
+    UPDATE Pasajeros SET deuda=monto WHERE codigoPasajero=codigoP;
 END$$
 Delimiter ;
 

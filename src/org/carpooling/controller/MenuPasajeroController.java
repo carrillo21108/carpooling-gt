@@ -56,4 +56,8 @@ public class MenuPasajeroController implements Initializable{
         this.escenarioPrincipal.ventanaGrupoPasajero();
     }
     
+    public void salir(){
+        escenarioPrincipal.login();
+    }
+    
 }

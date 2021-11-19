@@ -81,7 +81,7 @@ public class GrupoConductorController implements Initializable {
         colCodigo.setCellValueFactory(new PropertyValueFactory<>("codigoPasajero"));
         colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         colApellidos.setCellValueFactory(new PropertyValueFactory<>("apellidos"));
-        colRuta.setCellValueFactory(new PropertyValueFactory<>("destino"));
+        colRuta.setCellValueFactory(new PropertyValueFactory<>("ubicacion"));
 
     }
 
