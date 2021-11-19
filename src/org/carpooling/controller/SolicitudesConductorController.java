@@ -161,4 +161,8 @@ public class SolicitudesConductorController implements Initializable {
             JOptionPane.showMessageDialog(null, "Debe seleccionar un elemento.");
         }
     }
+    
+    public void salir(){
+        this.escenarioPrincipal.ventanaMenuConductor();
+    }
 }

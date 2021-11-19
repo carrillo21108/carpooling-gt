@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="721.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.carpooling.controller.PagoConductorController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="721.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.carpooling.controller.PagoConductorController">
    <children>
       <Label layoutX="271.0" layoutY="403.0" text="Carpooling Gt" textFill="#276a7c">
          <font>
@@ -25,7 +22,7 @@
       </Label>
       <ToolBar layoutX="-3.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="45.0" prefWidth="721.0">
          <items>
-            <Button mnemonicParsing="false" text="Salir" />
+            <Button mnemonicParsing="false" onAction="#salir" text="Salir" />
          </items>
       </ToolBar>
       <TableView fx:id="tblPasajero" layoutX="35.0" layoutY="160.0" prefHeight="200.0" prefWidth="646.0">

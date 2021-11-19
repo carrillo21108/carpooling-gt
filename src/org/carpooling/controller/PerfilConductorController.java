@@ -121,7 +121,9 @@ public class PerfilConductorController implements Initializable {
         txtApellidos.setText("");
         txtCorreo.setText("");
     }
-    
+    public void salir(){
+        this.escenarioPrincipal.ventanaMenuConductor();
+    }
     public Principal getEscenarioPrincipal() {
         return escenarioPrincipal;
     }

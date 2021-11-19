@@ -88,6 +88,10 @@ public class PagoConductorController implements Initializable{
     public void realizarPago(){
         
         
+        }
+    
+    public void salir(){
+        this.escenarioPrincipal.ventanaMenuConductor();
     }
     
 }
