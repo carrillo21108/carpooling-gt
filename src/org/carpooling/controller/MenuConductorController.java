@@ -40,6 +40,22 @@ public class MenuConductorController implements Initializable {
     public void verGrupo() {
         escenarioPrincipal.ventanaGrupoConductor();
     }
+    
+    public void verSolicitudes() {
+        escenarioPrincipal.ventanaSolicitudesConductor();
+    }
+    
+    public void verPerfil(){
+        escenarioPrincipal.ventanaPerfilConductor();
+    }   
+    
+    public void verPagos(){
+        escenarioPrincipal.ventanaPagoConductor();
+    }
+    
+    public void salir(){
+        System.exit(0);
+    }
 
     public void obtenerPasajeros(){
         
