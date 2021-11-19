@@ -22,7 +22,7 @@ CREATE TABLE Conductores (
     correo varchar(10) not null,
     usuario varchar(10) not null,
     contrasenia varchar(10) not null,
-    codigoCarro int not null,
+    codigoCarro int not null auto_increment,
     espaciosDisponibles int not null,
     ubicacion varchar(50) not null,
     destino varchar(50) not null,
@@ -123,11 +123,11 @@ Delimiter ;
 
 -- Procedimientos tabla Conductores
 Delimiter $$
-CREATE PROCEDURE sp_AgregarConductor(IN nombre varchar(10), IN apellidos varchar(10), IN correo varchar(10), IN usuario varchar(10), IN contrasenia varchar(10),
-									IN codigoCarro int, IN espaciosDisponibles int, IN ubicacion varchar(50), IN destino varchar(50))
+CREATE PROCEDURE sp_AgregarConductor(IN nombre varchar(10), IN apellidos varchar(10), IN correo varchar(10), IN usuario varchar(10), IN contrasenia varchar(10), 
+										IN espaciosDisponibles int, IN ubicacion varchar(50), IN destino varchar(50))
 BEGIN
-	INSERT INTO Conductores (nombre, apellidos, correo, usuario, contrasenia, codigoCarro, espaciosDisponibles, ubicacion, destino)
-		VALUES(nombre, apellidos, correo, usuario, contrasenia, codigoCarro, espaciosDisponibles, ubicacion, destino);
+	INSERT INTO Conductores (nombre, apellidos, correo, usuario, contrasenia , espaciosDisponibles, ubicacion, destino)
+		VALUES(nombre, apellidos, correo, usuario, contrasenia, espaciosDisponibles, ubicacion, destino);
 END$$
 Delimiter ;
 
@@ -391,4 +391,4 @@ BEGIN
         FROM Pasajeros WHERE codigoConductor=codigoC;
 
 END$$
-Delimiter ; 
+Delimiter ;
