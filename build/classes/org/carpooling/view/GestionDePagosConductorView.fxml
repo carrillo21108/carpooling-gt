@@ -9,14 +9,14 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="721.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.carpooling.controller.PagoConductorController">
    <children>
-      <Label layoutX="220.0" layoutY="66.0" prefHeight="48.0" prefWidth="293.0" text="Gestión de pagos">
-         <font>
-            <Font name="Bell MT" size="40.0" />
-         </font>
-      </Label>
       <Label layoutX="271.0" layoutY="403.0" text="Carpooling Gt" textFill="#276a7c">
          <font>
             <Font name="Bell MT" size="29.0" />
+         </font>
+      </Label>
+      <Label layoutX="220.0" layoutY="66.0" prefHeight="48.0" prefWidth="293.0" text="Gestión de pagos">
+         <font>
+            <Font name="Bell MT" size="40.0" />
          </font>
       </Label>
       <ToolBar layoutX="-3.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="45.0" prefWidth="721.0">

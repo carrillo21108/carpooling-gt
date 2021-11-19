@@ -24,7 +24,7 @@ public class Principal extends Application {
        this.escenarioPrincipal=escenarioPrincipal;
        escenarioPrincipal.setTitle("Carpooling GT");
        escenarioPrincipal.getIcons().add(new Image("/org/carpooling/images/logo.png"));
-       login();
+       ventanaPuntosPorRecorrer();
        escenarioPrincipal.show();
     }
     
@@ -73,7 +73,14 @@ public class Principal extends Application {
         }
     }
     
-    
+    public void ventanaPuntosPorRecorrer(){
+        try{
+            PuntosPorRecorrerController registro = (PuntosPorRecorrerController)cambiarEscena("PuntosPorRecorrerView.fxml", 721, 452);
+            registro.setEscenarioPrincipal(this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
     public void ventanaGrupoConductor(){
         try{
             
