@@ -79,6 +79,7 @@ CREATE TABLE Deudas (
     codigoPasajero int not null,
     codigoConductor int not null,
     nombreConductor varchar(20) not null,
+    ruta varchar(50) not null,
     
     primary key PK_codigoDeuda (codigoDeuda),
     constraint FK_Deudas_Pasajeros foreign key (codigoPasajero)
@@ -418,9 +419,9 @@ Delimiter ;
 
 -- Procedimiento Set Deuda
 Delimiter $$
-CREATE PROCEDURE sp_AgregarDeuda(IN monto decimal(10,2), IN codigoPasajero int, IN codigoConductor int, IN nombreConductor varchar(20))
+CREATE PROCEDURE sp_AgregarDeuda(IN monto decimal(10,2), IN codigoPasajero int, IN codigoConductor int, IN nombreConductor varchar(20), IN ruta varchar(50))
 BEGIN 
-	INSERT INTO Deudas (monto, codigoPasajero, codigoConductor, nombreConductor) VALUES (monto, codigoPasajero, codigoConductor, nombreConductor);
+	INSERT INTO Deudas (monto, codigoPasajero, codigoConductor, nombreConductor, ruta) VALUES (monto, codigoPasajero, codigoConductor, nombreConductor, ruta);
 END$$
 Delimiter ;
 
@@ -433,7 +434,8 @@ BEGIN
         Deudas.monto,
         Deudas.codigoPasajero, 
         Deudas.codigoConductor,
-        Deudas.nombreConductor
+        Deudas.nombreConductor,
+        Deudas.ruta
         FROM Deudas WHERE codigoPasajero=codigo;
 END$$
 Delimiter ;
