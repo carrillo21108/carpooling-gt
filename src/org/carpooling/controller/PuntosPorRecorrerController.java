@@ -72,6 +72,7 @@ public class PuntosPorRecorrerController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        cargarDatos();
     }
     
     public void cargarDatos() {

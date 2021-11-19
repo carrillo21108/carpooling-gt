@@ -29,6 +29,7 @@
                   <MenuItem mnemonicParsing="false" onAction="#verSolicitudes" text="Solicitudes" />
                   <MenuItem mnemonicParsing="false" onAction="#verPerfil" text="Perfil" />
                   <MenuItem mnemonicParsing="false" onAction="#verPagos" text="Pagos" />
+                  <MenuItem mnemonicParsing="false" onAction="#verPuntos" text="Puntos por recorrer" />
                   <MenuItem mnemonicParsing="false" onAction="#salir" text="Salir" />
                </items>
             </Menu>

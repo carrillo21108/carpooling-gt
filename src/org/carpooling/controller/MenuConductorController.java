@@ -53,6 +53,10 @@ public class MenuConductorController implements Initializable {
         escenarioPrincipal.ventanaPagoConductor();
     }
     
+    public void verPuntos(){
+        escenarioPrincipal.ventanaPuntosPorRecorrer();
+    }
+    
     public void salir(){
         System.exit(0);
     }

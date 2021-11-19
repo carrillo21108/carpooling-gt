@@ -38,7 +38,7 @@
       </TableView>
       <Button fx:id="btnFinalizarViaje" layoutX="376.0" layoutY="326.0" mnemonicParsing="false" onAction="#finalizarViaje" prefHeight="31.0" prefWidth="104.0" text="Finalizar" />
       <Button fx:id="btnIniciarViaje" layoutX="243.0" layoutY="326.0" mnemonicParsing="false" onAction="#iniciarViaje" prefHeight="31.0" prefWidth="104.0" text="Inciar Viaje" />
-      <Label fx:id="txtMonto" layoutX="249.0" layoutY="386.0" prefHeight="35.0" prefWidth="70.0" text="Q0.0" textFill="#276a7c">
+      <Label fx:id="txtMonto" layoutX="249.0" layoutY="386.0" prefHeight="35.0" prefWidth="92.0" text="Q0.0" textFill="#276a7c">
          <font>
             <Font name="Bell MT" size="29.0" />
          </font>
