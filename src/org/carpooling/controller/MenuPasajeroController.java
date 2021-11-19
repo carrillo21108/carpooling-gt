@@ -52,4 +52,8 @@ public class MenuPasajeroController implements Initializable{
         this.escenarioPrincipal.ventanaPagoPasajero();
     }
     
+    public void verGrupo(){
+        this.escenarioPrincipal.ventanaGrupoPasajero();
+    }
+    
 }

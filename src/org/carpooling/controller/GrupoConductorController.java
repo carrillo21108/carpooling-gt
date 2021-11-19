@@ -129,6 +129,7 @@ public class GrupoConductorController implements Initializable {
                         }catch(Exception e){
                             e.printStackTrace();
                         }
+                
             }
             else{
                 tablaPasajeros.getSelectionModel().select(null);

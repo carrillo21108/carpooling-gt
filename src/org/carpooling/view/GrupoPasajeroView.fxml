@@ -9,34 +9,33 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="452.0" prefWidth="721.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="org.carpooling.controller.GrupoPasajeroController">
+<AnchorPane id="AnchorPane" prefHeight="452.0" prefWidth="721.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.carpooling.controller.GrupoPasajeroController">
    <children>
       <ToolBar layoutX="2.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="45.0" prefWidth="721.0">
          <items>
-            <Button mnemonicParsing="false" text="Salir" />
+            <Button mnemonicParsing="false" onAction="#salir" text="Salir" />
          </items>
       </ToolBar>
-      <TableView layoutX="54.0" layoutY="255.0" prefHeight="137.0" prefWidth="593.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="No. " />
-          <TableColumn prefWidth="75.0" text="Nombre" />
-            <TableColumn prefWidth="75.0" text="Apellidos" />
-            <TableColumn prefWidth="75.0" text="Ruta" />
-        </columns>
-      </TableView>
       <Text layoutX="54.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pasajeros" wrappingWidth="61.5">
          <font>
             <Font size="13.0" />
          </font>
       </Text>
-      <TableView layoutX="54.0" layoutY="153.0" prefHeight="67.0" prefWidth="593.0">
+      <TableView fx:id="tablaConductores" layoutX="54.0" layoutY="153.0" prefHeight="67.0" prefWidth="593.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="No." />
-            <TableColumn prefWidth="75.0" text="Nombre" />
-            <TableColumn prefWidth="75.0" text="Apellidos" />
-            <TableColumn prefWidth="75.0" text="C2" />
+            <TableColumn fx:id="colCodigoC" prefWidth="75.0" text="No." />
+            <TableColumn fx:id="colNombreC" prefWidth="75.0" text="Nombre" />
+            <TableColumn fx:id="colApellidosC" prefWidth="120.0" text="Apellidos" />
+            <TableColumn fx:id="colRutaC" prefWidth="322.0" text="Ruta" />
          </columns>
+      </TableView>
+      <TableView fx:id="tablaPasajeros" layoutX="54.0" layoutY="255.0" prefHeight="137.0" prefWidth="593.0">
+        <columns>
+          <TableColumn fx:id="colCodigoP" prefWidth="75.0" text="No. " />
+          <TableColumn fx:id="colNombreP" prefWidth="75.0" text="Nombre" />
+            <TableColumn fx:id="colApellidosP" prefWidth="138.0" text="Apellidos" />
+            <TableColumn fx:id="colRutaP" prefWidth="304.0" text="Ruta" />
+        </columns>
       </TableView>
       <Text layoutX="54.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Conductor" wrappingWidth="61.5">
          <font>
@@ -48,6 +47,6 @@
             <Font name="Bell MT" size="40.0" />
          </font>
       </Label>
-      <Button layoutX="536.0" layoutY="402.0" mnemonicParsing="false" text="Abandonar grupo" textFill="#ff1b1b" />
+      <Button layoutX="536.0" layoutY="402.0" mnemonicParsing="false" onAction="#abandonarGrupo" text="Abandonar grupo" textFill="#ff1b1b" />
    </children>
 </AnchorPane>

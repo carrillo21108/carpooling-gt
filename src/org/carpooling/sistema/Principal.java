@@ -92,6 +92,15 @@ public class Principal extends Application {
         }
     }
     
+    public void ventanaGrupoPasajero(){
+        try{
+            GrupoPasajeroController registro = (GrupoPasajeroController)cambiarEscena("GrupoPasajeroView.fxml", 721,452);
+            registro.setEscenarioPrincipal(this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
     public void ventanaBuscarConductor(){
         try{
             BuscarConductorController registro = (BuscarConductorController)cambiarEscena("BuscarConductorView.fxml", 721, 452);
