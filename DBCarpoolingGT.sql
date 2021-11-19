@@ -22,7 +22,7 @@ CREATE TABLE Conductores (
     correo varchar(10) not null,
     usuario varchar(10) not null,
     contrasenia varchar(10) not null,
-    codigoCarro int not null auto_increment,
+    codigoCarro int not null,
     espaciosDisponibles int not null,
     ubicacion varchar(50) not null,
     destino varchar(50) not null,
@@ -71,6 +71,21 @@ CREATE TABLE Solicitudes (
 		references Pasajeros (codigoPasajero) ON DELETE CASCADE,
     constraint FK_Solicitudes_Conductores foreign key (codigoConductor)
 		references Conductores (codigoConductor) ON DELETE CASCADE
+);
+
+CREATE TABLE Deudas (
+	codigoDeuda int not null auto_increment,
+    monto decimal(10,2) not null,
+    codigoPasajero int not null,
+    codigoConductor int not null,
+    nombreConductor varchar(20) not null,
+    ruta varchar(50) not null,
+    
+    primary key PK_codigoDeuda (codigoDeuda),
+    constraint FK_Deudas_Pasajeros foreign key (codigoPasajero)
+		references Pasajeros (codigoPasajero),
+    constraint FK_Deudas_Conductores foreign key (codigoConductor)
+		references Conductores (codigoConductor)
 );
 
 
@@ -124,10 +139,10 @@ Delimiter ;
 -- Procedimientos tabla Conductores
 Delimiter $$
 CREATE PROCEDURE sp_AgregarConductor(IN nombre varchar(10), IN apellidos varchar(10), IN correo varchar(10), IN usuario varchar(10), IN contrasenia varchar(10), 
-										IN espaciosDisponibles int, IN ubicacion varchar(50), IN destino varchar(50))
+										IN codigoCarro int, IN espaciosDisponibles int, IN ubicacion varchar(50), IN destino varchar(50))
 BEGIN
-	INSERT INTO Conductores (nombre, apellidos, correo, usuario, contrasenia , espaciosDisponibles, ubicacion, destino)
-		VALUES(nombre, apellidos, correo, usuario, contrasenia, espaciosDisponibles, ubicacion, destino);
+	INSERT INTO Conductores (nombre, apellidos, correo, usuario, contrasenia , codigoCarro, espaciosDisponibles, ubicacion, destino)
+		VALUES(nombre, apellidos, correo, usuario, contrasenia, codigoCarro, espaciosDisponibles, ubicacion, destino);
 END$$
 Delimiter ;
 
@@ -392,3 +407,45 @@ BEGIN
 
 END$$
 Delimiter ;
+
+-- Procedimiento obtener ultimo carro
+Delimiter $$
+CREATE PROCEDURE sp_obtenerCarro()
+BEGIN 
+	SELECT *
+		FROM Carros ORDER BY codigoCarro DESC LIMIT 1;
+END$$
+Delimiter ;
+
+-- Procedimiento Set Deuda
+Delimiter $$
+CREATE PROCEDURE sp_AgregarDeuda(IN monto decimal(10,2), IN codigoPasajero int, IN codigoConductor int, IN nombreConductor varchar(20), IN ruta varchar(50))
+BEGIN 
+	INSERT INTO Deudas (monto, codigoPasajero, codigoConductor, nombreConductor, ruta) VALUES (monto, codigoPasajero, codigoConductor, nombreConductor, ruta);
+END$$
+Delimiter ;
+
+-- Procedimiento Obtener Deudas
+Delimiter $$
+CREATE PROCEDURE sp_ObtenerDeudas(IN codigo int)
+BEGIN 
+	SELECT
+		Deudas.codigoDeuda,
+        Deudas.monto,
+        Deudas.codigoPasajero, 
+        Deudas.codigoConductor,
+        Deudas.nombreConductor,
+        Deudas.ruta
+        FROM Deudas WHERE codigoPasajero=codigo;
+END$$
+Delimiter ;
+
+-- Procedimiento Expulsar Pasajero
+Delimiter $$
+CREATE PROCEDURE sp_ExpulsarPasajero(IN codigoP int)
+BEGIN 
+    UPDATE Pasajeros SET codigoConductor=null WHERE codigoPasajero=codigoP;
+END$$
+Delimiter ;
+
+

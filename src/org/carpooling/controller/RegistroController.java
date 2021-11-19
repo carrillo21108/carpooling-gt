@@ -2,6 +2,7 @@ package org.carpooling.controller;
 
 import java.net.URL;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -67,6 +68,20 @@ public class RegistroController implements Initializable {
         }
     }
      
+    public Carro obtenerCarro(){
+        Carro resultado = null;
+        try{
+            PreparedStatement procedimiento = Conexion.getInstancia().getConexion().prepareCall("{call sp_obtenerCarro()}");
+            ResultSet registro = procedimiento.executeQuery();
+            while(registro.next()){
+                resultado = new Carro(registro.getInt("codigoCarro"), registro.getString("marca"), Integer.parseInt(registro.getString("modelo")),registro.getInt("cantAsientos"));
+            }  
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return resultado; 
+    }
+     
     public void guardar(){
         
         if (radioConductor.isSelected()){
@@ -86,6 +101,8 @@ public class RegistroController implements Initializable {
                 e.printStackTrace();
             }
             
+            Carro rslt = obtenerCarro();
+            
             Conductor registro = new Conductor();
             registro.setNombre(txtNombres.getText());
             registro.setApellidos(txtApellidos.getText());
@@ -95,17 +112,19 @@ public class RegistroController implements Initializable {
             registro.setEspaciosDisponibles(4);
             registro.setUbicacion(txtUbicacion.getText());
             registro.setDestino(txtDestino.getText());
+            registro.setCodigoAuto(rslt.getCodigoAuto());
             
             try{
-                PreparedStatement procedimiento = Conexion.getInstancia().getConexion().prepareCall("{call sp_AgregarConductor(?,?,?,?,?,?,?,?)}");
+                PreparedStatement procedimiento = Conexion.getInstancia().getConexion().prepareCall("{call sp_AgregarConductor(?,?,?,?,?,?,?,?,?)}");
                 procedimiento.setString(1, registro.getNombre());
                 procedimiento.setString(2, registro.getApellidos());
                 procedimiento.setString(3, registro.getCorreo());
                 procedimiento.setString(4, registro.getUsuario());
                 procedimiento.setString(5, registro.getContrasenia());
-                procedimiento.setInt(6, 4);
-                procedimiento.setString(7, registro.getUbicacion());    
-                procedimiento.setString(8, registro.getDestino());  
+                procedimiento.setInt(6, registro.getCodigoAuto());
+                procedimiento.setInt(7, 4);
+                procedimiento.setString(8, registro.getUbicacion());    
+                procedimiento.setString(9, registro.getDestino());  
                 procedimiento.execute();
             }catch(Exception e){
                 e.printStackTrace();
