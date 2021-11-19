@@ -31,9 +31,9 @@
           <Menu mnemonicParsing="false" text="Menu">
             <items>
                   <MenuItem mnemonicParsing="false" text="Ver grupo" />
-              <MenuItem mnemonicParsing="false" text="Perfil" />
+              <MenuItem mnemonicParsing="false" onAction="#ventanaPerfilPasajero" text="Perfil" />
                   <MenuItem mnemonicParsing="false" onAction="#ventanaBuscarConductor" text="Buscar" />
-                  <MenuItem mnemonicParsing="false" text="Pagos" />
+                  <MenuItem mnemonicParsing="false" onAction="#ventanaPagosPasajero" text="Pagos" />
                   <MenuItem mnemonicParsing="false" text="Salir" />
             </items>
           </Menu>
