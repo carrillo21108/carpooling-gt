@@ -40,7 +40,7 @@
             <Font name="Bell MT" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="btnRegistrarse" layoutX="501.0" layoutY="412.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="104.0" text="Registrarse" />
+      <Button fx:id="btnRegistrarse" layoutX="501.0" layoutY="412.0" mnemonicParsing="false" onAction="#nuevo" prefHeight="31.0" prefWidth="104.0" text="Registrarse" />
       <Label layoutX="430.0" layoutY="143.0" text="Usuario">
          <font>
             <Font name="Bell MT" size="18.0" />
@@ -63,15 +63,15 @@
             <Font name="Bell MT" size="18.0" />
          </font>
       </Label>
-      <RadioButton fx:id="radioConductor" layoutX="442.0" layoutY="288.0" mnemonicParsing="false" onAction="#toggleConductor" text="Conductor" />
-      <RadioButton fx:id="radioPasajero" layoutX="564.0" layoutY="288.0" mnemonicParsing="false" onAction="#togglePasajero" selected="true" text="Pasajero" />
+      <RadioButton fx:id="radioConductor" layoutX="442.0" layoutY="288.0" mnemonicParsing="false" onAction="#toggleConductor" selected="true" text="Conductor" />
+      <RadioButton fx:id="radioPasajero" layoutX="564.0" layoutY="288.0" mnemonicParsing="false" onAction="#togglePasajero" text="Pasajero" />
       <Label layoutX="445.0" layoutY="187.0" text="Sexo">
          <font>
             <Font name="Bell MT" size="18.0" />
          </font>
       </Label>
-      <RadioButton fx:id="radioMasculino" layoutX="443.0" layoutY="214.0" mnemonicParsing="false" onAction="#toggleMasculino" text="Masculino" />
-      <RadioButton fx:id="radioFemenino" layoutX="565.0" layoutY="216.0" mnemonicParsing="false" onAction="#toggleFemenino" selected="true" text="Femenino" />
+      <RadioButton fx:id="radioMasculino" layoutX="443.0" layoutY="214.0" mnemonicParsing="false" onAction="#toggleMasculino" selected="true" text="Masculino" />
+      <RadioButton fx:id="radioFemenino" layoutX="565.0" layoutY="216.0" mnemonicParsing="false" onAction="#toggleFemenino" text="Femenino" />
       <Label layoutX="42.0" layoutY="347.0" text="Tu ubicación">
          <font>
             <Font name="Bell MT" size="18.0" />

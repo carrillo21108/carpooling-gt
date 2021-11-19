@@ -35,6 +35,7 @@ public class PagoPasajeroController implements Initializable {
       
     private Principal escenarioPrincipal;
     @FXML private Button btnPagar;
+    @FXML private Button btnSalir;
     
     @FXML private TableView tblDeudas;
     
@@ -144,5 +145,9 @@ public class PagoPasajeroController implements Initializable {
     
     public void realizarPago(){
         
+    }
+    
+    public void salir(){
+        escenarioPrincipal.ventanaMenuPasajero(); 
     }
 }

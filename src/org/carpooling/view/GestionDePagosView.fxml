@@ -21,7 +21,7 @@
       </Label>
       <ToolBar layoutX="-3.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="45.0" prefWidth="721.0">
          <items>
-            <Button mnemonicParsing="false" text="Salir" />
+            <Button fx:id="btnSalir" mnemonicParsing="false" onAction="#salir" text="Salir" />
          </items>
       </ToolBar>
       <TableView fx:id="tblDeudas" layoutX="44.0" layoutY="136.0" prefHeight="200.0" prefWidth="642.0">

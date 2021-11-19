@@ -28,11 +28,11 @@
             <Button mnemonicParsing="false" text="Salir" />
          </items>
       </ToolBar>
-      <TableView layoutX="35.0" layoutY="160.0" prefHeight="200.0" prefWidth="646.0">
+      <TableView fx:id="tblPasajero" layoutX="35.0" layoutY="160.0" prefHeight="200.0" prefWidth="646.0">
         <columns>
-          <TableColumn prefWidth="161.0" text="Nombre y Apellidos" />
-          <TableColumn prefWidth="107.0" text="Deuda" />
-            <TableColumn prefWidth="377.0" text="Ruta" />
+          <TableColumn fx:id="colNombres" prefWidth="161.0" text="Nombre y Apellidos" />
+          <TableColumn fx:id="colDeuda" prefWidth="107.0" text="Deuda" />
+            <TableColumn fx:id="colRuta" prefWidth="377.0" text="Ruta" />
         </columns>
       </TableView>
    </children>
