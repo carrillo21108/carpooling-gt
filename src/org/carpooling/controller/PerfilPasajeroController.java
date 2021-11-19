@@ -65,7 +65,9 @@ public class PerfilPasajeroController implements Initializable {
     }
     
     
-    
+    public void salir(){
+        this.escenarioPrincipal.ventanaMenuPasajero();
+    }
     
     public void getDatos(Pasajero p){
         try{      
