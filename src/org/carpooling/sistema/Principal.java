@@ -128,6 +128,15 @@ public class Principal extends Application {
         }
     }
     
+    public void ventanaPagoPasajero(){
+         try {
+            PagoPasajeroController registro = (PagoPasajeroController)cambiarEscena("GestionDePagosView.fxml", 721, 452);
+            registro.setEscenarioPrincipal(this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
     public Initializable cambiarEscena(String fxml, int ancho, int alto) throws Exception{
         Initializable resultado = null;
         FXMLLoader cargadorFXML = new FXMLLoader();

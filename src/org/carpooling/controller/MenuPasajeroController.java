@@ -44,4 +44,12 @@ public class MenuPasajeroController implements Initializable{
         this.escenarioPrincipal.ventanaBuscarConductor();
     }
     
+    public void ventanaPerfilPasajero(){
+        this.escenarioPrincipal.ventanaPerfilPasajero();
+    }
+    
+    public void ventanaPagosPasajero(){
+        this.escenarioPrincipal.ventanaPagoPasajero();
+    }
+    
 }
