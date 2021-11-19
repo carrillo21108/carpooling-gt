@@ -26,10 +26,10 @@
             <Menu mnemonicParsing="false" text="Menu">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#verGrupo" text="Ver grupo" />
-                  <MenuItem mnemonicParsing="false" text="Solicitudes" />
-                  <MenuItem mnemonicParsing="false" text="Perfil" />
-                  <MenuItem mnemonicParsing="false" text="Pagos" />
-                  <MenuItem mnemonicParsing="false" text="Salir" />
+                  <MenuItem mnemonicParsing="false" onAction="#verSolicitudes" text="Solicitudes" />
+                  <MenuItem mnemonicParsing="false" onAction="#verPerfil" text="Perfil" />
+                  <MenuItem mnemonicParsing="false" onAction="#verPagos" text="Pagos" />
+                  <MenuItem mnemonicParsing="false" onAction="#salir" text="Salir" />
                </items>
             </Menu>
          </menus>
