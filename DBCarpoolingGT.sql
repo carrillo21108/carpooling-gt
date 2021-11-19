@@ -440,6 +440,15 @@ BEGIN
 END$$
 Delimiter ;
 
+
+-- Procedimiento Delete Deuda 
+Delimiter $$
+CREATE PROCEDURE sp_EliminarDeuda(IN codigo int)
+BEGIN
+	DELETE FROM Deudas WHERE codigoDeuda=codigo;
+END$$
+Delimiter ;
+
 -- Procedimiento Expulsar Pasajero
 Delimiter $$
 CREATE PROCEDURE sp_ExpulsarPasajero(IN codigoP int)

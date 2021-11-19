@@ -29,8 +29,6 @@ import org.carpooling.sistema.Principal;
  * @author Usuario
  */
 public class SolicitudesConductorController implements Initializable {
-    private enum operaciones{NUEVO, GUARDAR, ELIMINAR, EDITAR, ACTUALIZAR, CANCELAR, NINGUNO};
-    private operaciones tipoDeOperacion=operaciones.NINGUNO;
     
     private ObservableList<Solicitud>listaSolicitudes;
       
