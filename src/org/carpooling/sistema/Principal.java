@@ -112,14 +112,6 @@ public class Principal extends Application {
         }
     }
     
-    public void ventanaPagoConductor(){
-         try {
-            PagoConductorController registro = (PagoConductorController)cambiarEscena("GestionDePagosConductorView.fxml", 721, 452);
-            registro.setEscenarioPrincipal(this);
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-    }
     
     public Initializable cambiarEscena(String fxml, int ancho, int alto) throws Exception{
         Initializable resultado = null;

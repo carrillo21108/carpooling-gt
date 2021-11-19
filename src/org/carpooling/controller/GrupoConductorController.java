@@ -18,7 +18,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javax.swing.JOptionPane;
 import org.carpooling.bean.Conductor;
 import org.carpooling.bean.Pasajero;
 import org.carpooling.sistema.Principal;
@@ -44,10 +43,9 @@ public class GrupoConductorController implements Initializable {
     private TableColumn colApellidos;
     @FXML
     private TableColumn colRuta;
+
     @FXML
     private Button btnRechazar;
-    @FXML
-    private Button btnSalir;
 
     private ResultSet token;
     private ResultSet conductorActual;
@@ -116,31 +114,7 @@ public class GrupoConductorController implements Initializable {
     }
 
     public void expulsarPasajero() {
-        if(tablaPasajeros.getSelectionModel().getSelectedItem() != null){
-            int respuesta = JOptionPane.showConfirmDialog(null, "¿Está seguro de expulsar al pasajero?", "Expulsar pasajero", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if(respuesta == JOptionPane.YES_OPTION){
-                try{
-                        PreparedStatement procedimiento = Conexion.getInstancia().getConexion().prepareCall("{call sp_ExpulsarPasajero(?)}");
-                        procedimiento.setInt(1, ((Pasajero)tablaPasajeros.getSelectionModel().getSelectedItem()).getCodigoPasajero());
-                        procedimiento.execute();
-                        pasajeros.remove(tablaPasajeros.getSelectionModel().getSelectedIndex());
-                        
-                        tablaPasajeros.getSelectionModel().select(null);
-                        }catch(Exception e){
-                            e.printStackTrace();
-                        }
-            }
-            else{
-                tablaPasajeros.getSelectionModel().select(null);
-            }
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "Debe seleccionar al pasajero antes de expulsarlo.");
-        }
-    }
-    
-    public void salir(){
-        escenarioPrincipal.ventanaMenuConductor();
+
     }
 
     public Principal getEscenarioPrincipal() {
