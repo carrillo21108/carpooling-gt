@@ -73,6 +73,20 @@ CREATE TABLE Solicitudes (
 		references Conductores (codigoConductor) ON DELETE CASCADE
 );
 
+CREATE TABLE Deudas (
+	codigoDeuda int not null auto_increment,
+    monto decimal(10,2) not null,
+    codigoPasajero int not null,
+    codigoConductor int not null,
+    nombreConductor varchar(20) not null,
+    
+    primary key PK_codigoDeuda (codigoDeuda),
+    constraint FK_Deudas_Pasajeros foreign key (codigoPasajero)
+		references Pasajeros (codigoPasajero),
+    constraint FK_Deudas_Conductores foreign key (codigoConductor)
+		references Conductores (codigoConductor)
+);
+
 
 -- Procedimientos tabla Carros
 Delimiter $$
@@ -398,7 +412,29 @@ Delimiter $$
 CREATE PROCEDURE sp_obtenerCarro()
 BEGIN 
 	SELECT *
-		FROM Carros ORDER BY codigoCarro ASC LIMIT 1;
+		FROM Carros ORDER BY codigoCarro DESC LIMIT 1;
+END$$
+Delimiter ;
+
+-- Procedimiento Set Deuda
+Delimiter $$
+CREATE PROCEDURE sp_AgregarDeuda(IN monto decimal(10,2), IN codigoPasajero int, IN codigoConductor int, IN nombreConductor varchar(20))
+BEGIN 
+	INSERT INTO Deudas (monto, codigoPasajero, codigoConductor, nombreConductor) VALUES (monto, codigoPasajero, codigoConductor, nombreConductor);
+END$$
+Delimiter ;
+
+-- Procedimiento Obtener Deudas
+Delimiter $$
+CREATE PROCEDURE sp_ObtenerDeudas(IN codigo int)
+BEGIN 
+	SELECT
+		Deudas.codigoDeuda,
+        Deudas.monto,
+        Deudas.codigoPasajero, 
+        Deudas.codigoConductor,
+        Deudas.nombreConductor
+        FROM Deudas WHERE codigoPasajero=codigo;
 END$$
 Delimiter ;
 
@@ -409,4 +445,5 @@ BEGIN
     UPDATE Pasajeros SET codigoConductor=null WHERE codigoPasajero=codigoP;
 END$$
 Delimiter ;
+
 
